@@ -1,0 +1,23 @@
+.ResultBoard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-top: 5vh;
+  color: white;
+}
+
+.ResultBoard-header {
+  width: 100%;
+  text-align: center;
+  font-size: 2vh;
+}
+
+.ResultBoard-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}

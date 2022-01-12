@@ -1,0 +1,29 @@
+.Result {
+  width: 15vw;
+  height: 22vh;
+  text-align: center;
+  margin: 1.5vh;
+}
+
+.Result-thumb {
+  margin-top: 1vh;
+  margin-left: 0.5vw;
+  width: 14vw;
+  height: 20vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.Result-name {
+  font-size: 1.8vh;
+  text-align: center;
+}
+
+.Result:hover {
+  cursor: pointer;
+}
+
+.Result:hover .Result-name {
+  color: gold;
+}
