@@ -11,12 +11,10 @@ const Homepage = () => {
   useEffect(() => {
     const getCocktails = async () => {
       const res = await axios.get("http://127.0.0.1:3001/cocktails/random");
-      console.log(res.data);
       setCocktails(res.data);
     };
     const getIngredients = async () => {
       const res = await axios.get("http://127.0.0.1:3001/ingredients/random");
-      console.log(res.data);
       setIngredients(res.data);
       setLoading(false);
     };

@@ -14,7 +14,7 @@ const AllResults = ({ type }) => {
       setLoading(false);
     };
     getData();
-  });
+  }, []);
 
   if (loading) return "Loading...";
 

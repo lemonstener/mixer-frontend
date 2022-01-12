@@ -10,7 +10,8 @@ const ResultBoard = ({ message, type, results }) => {
         {results.map((r) => {
           return (
             <Result
-              key={uuidv4 + r.id * 23}
+              key={uuidv4()}
+              type={type}
               name={r.name}
               id={r.id}
               img={type === "ingredients" ? r.img_lg : r.img}

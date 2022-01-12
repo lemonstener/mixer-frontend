@@ -3,6 +3,7 @@
   height: 22vh;
   text-align: center;
   margin: 1.5vh;
+  cursor: pointer;
 }
 
 .Result-thumb {
@@ -18,10 +19,6 @@
 .Result-name {
   font-size: 1.8vh;
   text-align: center;
-}
-
-.Result:hover {
-  cursor: pointer;
 }
 
 .Result:hover .Result-name {
