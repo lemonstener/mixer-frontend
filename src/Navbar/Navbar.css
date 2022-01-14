@@ -1,0 +1,49 @@
+.Navbar {
+  width: 90%;
+  height: 20%;
+  background-color: tomato;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  margin-left: 5%;
+  margin-top: 1%;
+  border-radius: 1vw;
+  font-size: 2vh;
+  line-height: 1.5vh;
+}
+
+.Navbar-btn {
+  margin: 1vw;
+  width: 9vw;
+  height: 1.5vh;
+  background-color: yellow;
+  padding: 8px 20px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.Navbar-btn:hover,
+.Navbar-toggle:hover {
+  background-color: rgb(137, 207, 240);
+  color: white;
+}
+
+.Navbar-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.Navbar-toggle-menu {
+  border: 1px solid black;
+  margin-top: 5px;
+  width: 100%;
+  background-color: yellow;
+}
+
+.Navbar-toggle {
+  width: 100%;
+  height: 3vh;
+  line-height: 2.3vh;
+}

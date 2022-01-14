@@ -11,7 +11,7 @@ const Result = ({ id, name, type, img, likes }) => {
     <div onClick={() => navigateTo(name)} className="Result">
       <div
         className="Result-thumb"
-        style={{ backgroundImage: `url(${img})` }}
+        style={{ backgroundImage: `url(${img.replace(/ /g, "%20")})` }}
       ></div>
       <div className="Result-name">{name}</div>
     </div>

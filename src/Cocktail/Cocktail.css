@@ -37,17 +37,16 @@
   width: 40vw;
   height: 40vh;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: auto;
   align-items: center;
   flex-wrap: wrap;
+  word-wrap: break-word;
 }
 
 .Cocktail-ingredient {
-  max-width: 20%;
-  max-height: 20%;
-  margin: 1vw;
-  font-size: 1.8vh;
+  width: 20%;
+  height: 25%;
   cursor: pointer;
 }
 
@@ -55,9 +54,17 @@
   color: gold;
 }
 
-.Cocktail-ingredient img {
-  max-width: 70%;
-  max-height: 80%;
+.Cocktail-ingredient-img {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+  width: 6vw;
+  height: 6vh;
+}
+
+.Cocktail-measure {
+  font-size: 1.3vh;
 }
 
 .Cocktail-instructions {

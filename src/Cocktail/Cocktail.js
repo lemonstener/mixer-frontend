@@ -47,8 +47,14 @@ const Cocktail = () => {
                 key={uuidv4()}
                 className="Cocktail-ingredient"
               >
-                <img src={`${i.img_sm}`} />
-                <div>
+                {/* <img src={`${i.img_sm}`} /> */}
+                <div
+                  className="Cocktail-ingredient-img"
+                  style={{
+                    backgroundImage: `url(${i.img_sm.replace(/ /g, "%20")})`,
+                  }}
+                ></div>
+                <div className="Cocktail-measure">
                   {i.measure !== "null" && `${i.measure} ${i.name}`}
                   {i.measure === "null" && `${i.name}`}
                 </div>
