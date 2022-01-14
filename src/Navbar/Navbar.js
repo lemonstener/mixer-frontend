@@ -20,15 +20,10 @@ const Navbar = () => {
     <>
       <nav className="Navbar">
         <div className="Navbar-btn">
-          <NavLink to="/">Logo</NavLink>
+          <NavLink to="/">Home</NavLink>
         </div>
 
-        <div
-          className="Navbar-btn"
-          onMouseEnter={dropdownCocktails}
-          onMouseLeave={dropdownCocktails}
-          onClick={dropdownCocktails}
-        >
+        <div className="Navbar-btn" onClick={dropdownCocktails}>
           Cocktails{" "}
           {toggleCocktails === true && (
             <div className="Navbar-toggle-menu">
@@ -42,12 +37,7 @@ const Navbar = () => {
           )}
         </div>
 
-        <div
-          className="Navbar-btn"
-          onMouseLeave={dropdownIngredients}
-          onMouseEnter={dropdownIngredients}
-          onClick={dropdownIngredients}
-        >
+        <div className="Navbar-btn" onClick={dropdownIngredients}>
           Ingredients{" "}
           {toggleIngredients === true && (
             <div className="Navbar-toggle-menu">
@@ -61,7 +51,7 @@ const Navbar = () => {
           )}
         </div>
         <div className="Navbar-btn">
-          <NavLink to="/">Sign in</NavLink>
+          <NavLink to="/login">Sign in</NavLink>
         </div>
       </nav>
     </>

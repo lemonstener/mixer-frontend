@@ -1,20 +1,21 @@
 .Cocktail {
   width: 80vw;
-  height: 80vh;
   padding: 1vh;
   margin-left: 10vw;
   margin-top: 5vh;
   text-align: center;
   color: white;
-  border-radius: 1vh;
+  border-radius: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgba(137, 207, 240, 0.9);
 }
 
 .Cocktail-title {
   margin: 1vh;
   font-size: 3vh;
+  font-weight: bold;
 }
 
 .Cocktail-contents {
@@ -37,21 +38,21 @@
   width: 40vw;
   height: 40vh;
   display: flex;
-  flex-direction: column;
-  justify-content: auto;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   word-wrap: break-word;
 }
 
 .Cocktail-ingredient {
-  width: 20%;
-  height: 25%;
+  width: 25%;
+  height: 30%;
   cursor: pointer;
 }
 
 .Cocktail-ingredient:hover {
-  color: gold;
+  color: #4c86a8;
 }
 
 .Cocktail-ingredient-img {
@@ -64,7 +65,9 @@
 }
 
 .Cocktail-measure {
-  font-size: 1.3vh;
+  font-size: 1.6vh;
+  margin-bottom: 0vh;
+  font-weight: bold;
 }
 
 .Cocktail-instructions {

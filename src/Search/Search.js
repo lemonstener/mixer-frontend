@@ -38,7 +38,9 @@ const Search = ({ type }) => {
         <input type="text" value={term} onChange={handleChange} />
         <button>Search</button>
       </form>
-      <ResultBoard message={message} results={data} type={type} />
+      {data.length > 1 && (
+        <ResultBoard message={message} results={data} type={type} />
+      )}
     </div>
   );
 };

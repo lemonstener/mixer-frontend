@@ -5,7 +5,7 @@ import "./Ingredient.css";
 import ResultBoard from "../ResultBoard/ResultBoard";
 
 const Ingredient = () => {
-  const { name } = useParams();
+  const { id } = useParams();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -14,9 +14,10 @@ const Ingredient = () => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://127.0.0.1:3001/ingredients/cocktails/name/${name}`
+          `http://127.0.0.1:3001/ingredients/cocktails/${id}`
         );
         setData(res.data);
+        console.log(res.data);
         setLoading(false);
       } catch (error) {
         setError(true);
@@ -31,7 +32,7 @@ const Ingredient = () => {
   if (error)
     return (
       <h1 style={{ color: "white" }}>
-        There are currently no cocktails made with {name}
+        There are currently no cocktails made with {data.name}
         in the database
       </h1>
     );
@@ -43,7 +44,7 @@ const Ingredient = () => {
       </div>
       <ResultBoard
         message={`Cocktails with ${`${
-          name[0].toUpperCase() + name.substring(1, name.length)
+          data.name[0].toUpperCase() + data.name.substring(1, data.name.length)
         }`}`}
         results={data.cocktails}
         type="cocktails"

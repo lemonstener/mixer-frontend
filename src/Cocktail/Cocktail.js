@@ -5,21 +5,19 @@ import { v4 as uuidv4 } from "uuid";
 import "./Cocktail.css";
 
 const Cocktail = () => {
-  const { name } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const navigateTo = async (string) => {
-    navigate(`/ingredients/details/${string.toLowerCase()}`);
+  const navigateTo = async (int) => {
+    navigate(`/ingredients/details/${int}`);
   };
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `http://127.0.0.1:3001/cocktails/name/${name}`
-        );
+        const res = await axios.get(`http://127.0.0.1:3001/cocktails/id/${id}`);
         setData(res.data);
         setLoading(false);
       } catch (error) {
@@ -43,11 +41,10 @@ const Cocktail = () => {
           {data.ingredients.map((i) => {
             return (
               <div
-                onClick={() => navigateTo(i.name)}
+                onClick={() => navigateTo(i.id)}
                 key={uuidv4()}
                 className="Cocktail-ingredient"
               >
-                {/* <img src={`${i.img_sm}`} /> */}
                 <div
                   className="Cocktail-ingredient-img"
                   style={{
@@ -64,7 +61,10 @@ const Cocktail = () => {
         </div>
       </div>
 
-      <div className="Cocktail-instructions">{data.instructions}</div>
+      <div className="Cocktail-instructions">
+        <h3>Instructions</h3>
+        <p>{data.instructions}</p>
+      </div>
     </div>
   );
 };

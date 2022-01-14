@@ -4,12 +4,16 @@
   text-align: center;
   margin: 1.5vh;
   cursor: pointer;
+  background-color: rgba(137, 207, 240, 0.8);
+  border-radius: 2vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .Result-thumb {
   margin-top: 1vh;
-  margin-left: 0.5vw;
-  width: 14vw;
+  margin-left: 1.5vw;
+  width: 12vw;
   height: 18vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,8 +23,11 @@
 .Result-name {
   font-size: 1.8vh;
   text-align: center;
+  font-weight: bold;
+  padding: 0.5vh;
+  word-wrap: break-word;
 }
 
 .Result:hover .Result-name {
-  color: gold;
+  color: #4c86a8;
 }

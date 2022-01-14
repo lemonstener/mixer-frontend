@@ -4,11 +4,11 @@ import "./Result.css";
 const Result = ({ id, name, type, img, likes }) => {
   const navigate = useNavigate();
 
-  const navigateTo = (string) => {
-    navigate(`/${type}/details/${string.toLowerCase()}`);
+  const navigateTo = () => {
+    navigate(`/${type}/details/${id}`);
   };
   return (
-    <div onClick={() => navigateTo(name)} className="Result">
+    <div onClick={navigateTo} className="Result">
       <div
         className="Result-thumb"
         style={{ backgroundImage: `url(${img.replace(/ /g, "%20")})` }}
