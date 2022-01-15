@@ -1,6 +1,6 @@
 import { useState } from "react/cjs/react.development";
 
-const RegisterForm = () => {
+const RegisterForm = ({ register }) => {
   const initialState = {
     username: "",
     password: "",

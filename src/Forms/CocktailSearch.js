@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react/cjs/react.development";
 import ResultBoard from "../ResultBoard/ResultBoard";
 
-const CocktailSearch = ({ type }) => {
+const CocktailSearch = () => {
   const [data, setData] = useState([]);
   const [term, setTerm] = useState("");
   const [message, setMessage] = useState(null);
@@ -31,13 +31,13 @@ const CocktailSearch = ({ type }) => {
   };
 
   return (
-    <div className>
+    <div>
       <form onSubmit={handleSubmit}>
         <input type="text" value={term} onChange={handleChange} />
         <button>Search</button>
       </form>
       {data.length > 1 && (
-        <ResultBoard message={message} results={data} type={type} />
+        <ResultBoard message={message} results={data} type="cocktails" />
       )}
     </div>
   );

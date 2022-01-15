@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react/cjs/react.development";
 import ResultBoard from "../ResultBoard/ResultBoard";
 
-const CocktailSearch = ({ type }) => {
+const IngredientSearch = () => {
   const [data, setData] = useState([]);
   const [term, setTerm] = useState("");
   const [message, setMessage] = useState(null);
@@ -10,9 +10,9 @@ const CocktailSearch = ({ type }) => {
   const searchTerm = async (string) => {
     try {
       const res = await axios.get(
-        `http://127.0.0.1:3001/cocktails/like/${string}`
+        `http://127.0.0.1:3001/ingredients/like/${string}`
       );
-      setMessage(`Cocktails matching the term '${string}'`);
+      setMessage(`Ingredients matching the term '${string}'`);
       setData(res.data);
     } catch (error) {
       setMessage(`Nothing matching the term '${string}'`);
@@ -31,16 +31,16 @@ const CocktailSearch = ({ type }) => {
   };
 
   return (
-    <div className>
+    <div>
       <form onSubmit={handleSubmit}>
         <input type="text" value={term} onChange={handleChange} />
         <button>Search</button>
       </form>
       {data.length > 1 && (
-        <ResultBoard message={message} results={data} type={type} />
+        <ResultBoard message={message} results={data} type="ingredients" />
       )}
     </div>
   );
 };
 
-export default CocktailSearch;
+export default IngredientSearch;

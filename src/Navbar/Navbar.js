@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
+import UserContext from "../UserContext";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ logout }) => {
+  const { user } = useContext(UserContext);
   const [toggleIngredients, setToggleIngredients] = useState(false);
   const [toggleCocktails, setToggleCocktails] = useState(false);
 
@@ -22,37 +25,29 @@ const Navbar = () => {
         <div className="Navbar-btn">
           <NavLink to="/">Home</NavLink>
         </div>
+        <div className="Navbar-btn">
+          <NavLink to="/cocktails">All Cocktails</NavLink>
+        </div>
 
         <div className="Navbar-btn" onClick={dropdownCocktails}>
-          Cocktails{" "}
+          Search{" "}
           {toggleCocktails === true && (
             <div className="Navbar-toggle-menu">
               <div className="Navbar-toggle">
-                <NavLink to="/cocktails">All</NavLink>
+                <NavLink to="/cocktails/search">by Cocktail</NavLink>
               </div>
               <div className="Navbar-toggle">
-                <NavLink to="/cocktails/search">Search</NavLink>
+                <NavLink to="/ingredients/search">by Ingredient</NavLink>
               </div>
             </div>
           )}
         </div>
 
-        <div className="Navbar-btn" onClick={dropdownIngredients}>
-          Ingredients{" "}
-          {toggleIngredients === true && (
-            <div className="Navbar-toggle-menu">
-              <div className="Navbar-toggle">
-                <NavLink to="/ingredients">All</NavLink>
-              </div>
-              <div className="Navbar-toggle">
-                <NavLink to="/ingredients/search">Search</NavLink>
-              </div>
-            </div>
-          )}
-        </div>
-        <div className="Navbar-btn">
-          <NavLink to="/login">Sign in</NavLink>
-        </div>
+        {!user && (
+          <div className="Navbar-btn">
+            <NavLink to="/login">Sign in</NavLink>
+          </div>
+        )}
       </nav>
     </>
   );

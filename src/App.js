@@ -4,16 +4,28 @@ import RouteList from "./Navbar/RouteList";
 import Navbar from "./Navbar/Navbar";
 import { useEffect, useState } from "react/cjs/react.development";
 import axios from "axios";
+import { decodeToken, Jwt } from "react-jwt";
+import UserContext from "./UserContext";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(localStorage.jobly);
+  const [token, setToken] = useState(localStorage.mixer);
   const [favorites, setFavorites] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getCurrentUser = async () => {
       if (token) {
+        try {
+          const decodeToken = decodeToken(token);
+          const userFavorites = await axios.get(
+            `http://127.0.0.1:3001/users/favorites/${decodeToken.id}`
+          );
+          setFavorites(userFavorites);
+          setUser(decodeToken.username);
+        } catch (error) {
+          setUser(null);
+        }
       }
     };
   }, [token]);
@@ -27,6 +39,7 @@ function App() {
       localStorage.set("mixer", token);
       return { success: true };
     } catch (errors) {
+      console.log(errors);
       return { success: false, errors };
     }
   };
@@ -44,10 +57,19 @@ function App() {
     }
   };
 
+  const logout = () => {
+    setUser(null);
+    setToken(null);
+    setFavorites(null);
+    localStorage.clear();
+  };
+
   return (
     <BrowserRouter>
-      <Navbar />
-      <RouteList />
+      <UserContext.Provider value={{ user, setUser }}>
+        <Navbar logout={logout} />
+        <RouteList login={login} register={register} />
+      </UserContext.Provider>
     </BrowserRouter>
   );
 }
