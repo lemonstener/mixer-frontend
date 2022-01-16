@@ -33,7 +33,12 @@ const CocktailSearch = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={term} onChange={handleChange} />
+        <input
+          type="text"
+          placeholder="ex. 'Long Island'"
+          value={term}
+          onChange={handleChange}
+        />
         <button>Search</button>
       </form>
       {data.length > 1 && (

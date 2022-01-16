@@ -17,7 +17,6 @@ const Ingredient = () => {
           `http://127.0.0.1:3001/ingredients/cocktails/${id}`
         );
         setData(res.data);
-        console.log(res.data);
         setLoading(false);
       } catch (error) {
         setError(true);

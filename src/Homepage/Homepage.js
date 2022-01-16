@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ResultBoard from "../ResultBoard/ResultBoard";
-import "./Homepage.css";
 
 const Homepage = () => {
   const [cocktails, setCocktails] = useState([]);
@@ -19,9 +18,9 @@ const Homepage = () => {
 
   if (loading) return "Loading...";
   return (
-    <div className="Homepage">
+    <div>
       <ResultBoard
-        message="Here are some cocktails to start with"
+        message="Let's get started with some random cocktails"
         type="cocktails"
         results={cocktails}
       />

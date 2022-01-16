@@ -1,4 +1,8 @@
+import axios from "axios";
+import { useNavigate } from "react-router";
 import { useState } from "react/cjs/react.development";
+import { v4 as uuidv4 } from "uuid";
+import errorMessages from "../helpers/errors";
 
 const RegisterForm = ({ register }) => {
   const initialState = {
@@ -8,6 +12,8 @@ const RegisterForm = ({ register }) => {
   };
 
   const [formData, setFormData] = useState(initialState);
+  const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,8 +23,27 @@ const RegisterForm = ({ register }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (
+      formData.username.trim() === "" ||
+      formData.password.trim() === "" ||
+      formData.email.trim() === ""
+    ) {
+      setErrors(["Empty fields"]);
+      return;
+    }
+    const res = await register(
+      formData.username,
+      formData.password,
+      formData.email
+    );
+    if (res.success) {
+      navigate("/profile");
+    } else {
+      const resErrors = res.errors.response.data;
+      Array.isArray(resErrors) ? setErrors(resErrors) : setErrors([resErrors]);
+    }
   };
 
   return (
@@ -51,6 +76,12 @@ const RegisterForm = ({ register }) => {
         onChange={handleChange}
       />
       <button>Submit</button>
+      {errors &&
+        errors.map((e) => (
+          <span className="error-msg" key={uuidv4()}>
+            {errorMessages[e]}
+          </span>
+        ))}
       <a href="/login">Already have an account? Login here</a>
     </form>
   );

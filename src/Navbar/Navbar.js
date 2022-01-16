@@ -14,11 +14,6 @@ const Navbar = ({ logout }) => {
     setToggleIngredients(false);
   };
 
-  const dropdownIngredients = () => {
-    setToggleIngredients((toggleIngredients) => !toggleIngredients);
-    setToggleCocktails(false);
-  };
-
   return (
     <>
       <nav className="Navbar">
@@ -26,7 +21,7 @@ const Navbar = ({ logout }) => {
           <NavLink to="/">Home</NavLink>
         </div>
         <div className="Navbar-btn">
-          <NavLink to="/cocktails">All Cocktails</NavLink>
+          <NavLink to="/cocktails">Cocktails</NavLink>
         </div>
 
         <div className="Navbar-btn" onClick={dropdownCocktails}>
@@ -34,10 +29,10 @@ const Navbar = ({ logout }) => {
           {toggleCocktails === true && (
             <div className="Navbar-toggle-menu">
               <div className="Navbar-toggle">
-                <NavLink to="/cocktails/search">by Cocktail</NavLink>
+                <NavLink to="/cocktails/search">cocktails</NavLink>
               </div>
               <div className="Navbar-toggle">
-                <NavLink to="/ingredients/search">by Ingredient</NavLink>
+                <NavLink to="/ingredients/search">ingredients</NavLink>
               </div>
             </div>
           )}
@@ -47,6 +42,17 @@ const Navbar = ({ logout }) => {
           <div className="Navbar-btn">
             <NavLink to="/login">Sign in</NavLink>
           </div>
+        )}
+
+        {user && (
+          <>
+            <div className="Navbar-btn">
+              <NavLink to="/profile">{user}</NavLink>
+            </div>
+            <div className="Navbar-btn" onClick={logout}>
+              <NavLink to="/">Sign out</NavLink>
+            </div>
+          </>
         )}
       </nav>
     </>

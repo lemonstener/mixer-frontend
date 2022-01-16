@@ -10,47 +10,55 @@ import UserContext from "./UserContext";
 function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.mixer);
-  const [favorites, setFavorites] = useState(null);
+  const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getCurrentUser = async () => {
       if (token) {
         try {
-          const decodeToken = decodeToken(token);
-          const userFavorites = await axios.get(
-            `http://127.0.0.1:3001/users/favorites/${decodeToken.id}`
+          const { username } = decodeToken(token);
+          const res = await axios.get(
+            `http://127.0.0.1:3001/users/${username}`
           );
+
+          const userFavorites = res.data.favorites.map((f) => f.id);
           setFavorites(userFavorites);
-          setUser(decodeToken.username);
+          setUser(res.data.username);
         } catch (error) {
           setUser(null);
         }
       }
     };
+    getCurrentUser();
   }, [token]);
 
-  const login = async (data) => {
+  const login = async (username, password) => {
     try {
       const res = await axios.post(`http://127.0.0.1:3001/users/login`, {
-        data,
+        username,
+        password,
       });
-      setToken(res.data._token);
-      localStorage.set("mixer", token);
+      console.log(res);
+      const resToken = res.data._token;
+      setToken(resToken);
+      localStorage.setItem("mixer", resToken);
       return { success: true };
     } catch (errors) {
-      console.log(errors);
       return { success: false, errors };
     }
   };
 
-  const register = async (data) => {
+  const register = async (username, password, email) => {
     try {
       const res = await axios.post(`http://127.0.0.1:3001/users/register`, {
-        data,
+        username,
+        password,
+        email,
       });
-      setToken(res.data._token);
-      localStorage.set("mixer", token);
+      const resToken = res.data._token;
+      setToken(resToken);
+      localStorage.setItem("mixer", resToken);
       return { success: true };
     } catch (errors) {
       return { success: false, errors };
@@ -66,7 +74,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{ user, setUser }}>
+      <UserContext.Provider value={{ user, setUser, favorites }}>
         <Navbar logout={logout} />
         <RouteList login={login} register={register} />
       </UserContext.Provider>
