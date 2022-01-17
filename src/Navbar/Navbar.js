@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import UserContext from "../UserContext";
 import "./Navbar.css";
@@ -20,12 +20,13 @@ const Navbar = ({ logout }) => {
         <div className="Navbar-btn">
           <NavLink to="/">Home</NavLink>
         </div>
+
         <div className="Navbar-btn">
           <NavLink to="/cocktails">Cocktails</NavLink>
         </div>
 
-        <div className="Navbar-btn" onClick={dropdownCocktails}>
-          Search{" "}
+        <div className="Navbar-dropdown-btn" onClick={dropdownCocktails}>
+          Search
           {toggleCocktails === true && (
             <div className="Navbar-toggle-menu">
               <div className="Navbar-toggle">
@@ -37,6 +38,10 @@ const Navbar = ({ logout }) => {
             </div>
           )}
         </div>
+
+        {/* <div className="Navbar-dropdown" onClick={dropdownCocktails}>
+          <div className="Navbar-dropdown-button">Search</div>
+        </div> */}
 
         {!user && (
           <div className="Navbar-btn">

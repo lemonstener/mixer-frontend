@@ -10,10 +10,6 @@ const Result = ({ id, name, type, img, likes }) => {
   return (
     <div onClick={navigateTo} className="Result">
       <img className="Result-img" src={img.replace(/ /g, "%20")} />
-      {/* <div
-        className="Result-thumb"
-        style={{ backgroundImage: `url(${img.replace(/ /g, "%20")})` }}
-      ></div> */}
       <p className="Result-name">{name}</p>
     </div>
   );

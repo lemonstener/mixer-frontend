@@ -10,14 +10,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba(255, 206, 66, 0.95);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .Cocktail-title {
   margin: 1vh;
   font-size: 3vh;
   font-weight: bold;
-  text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
+}
+
+.Cocktail img {
+  width: 45%;
+  margin-left: 5%;
 }
 
 .Cocktail-contents {
@@ -26,50 +30,35 @@
   justify-content: space-evenly;
 }
 
-.Cocktail-img {
-  margin-left: 10vw;
-  width: 40vw;
-  height: 40vh;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 .Cocktail-ingredients {
-  margin-right: 10vw;
   width: 40vw;
   height: 40vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   word-wrap: break-word;
-  text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
 }
 
 .Cocktail-ingredient {
   width: 25%;
-  height: 30%;
+  height: 25%;
   cursor: pointer;
   box-sizing: border-box;
+  transition: all 0.1s;
 }
 
 .Cocktail-ingredient:hover {
-  border-bottom: 1px solid #ff645b;
+  transform: scale(1.2);
 }
 
-.Cocktail-ingredient-img {
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin: auto;
-  width: 6vw;
-  height: 6vh;
+.Cocktail-ingredient:hover .Cocktail-measure {
+  color: rgba(255, 206, 66, 0.99);
 }
 
 .Cocktail-measure {
-  font-size: 1.6vh;
+  font-size: 0.9vw;
   margin-bottom: 0vh;
   font-weight: bold;
 }

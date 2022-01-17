@@ -48,6 +48,7 @@ const RegisterForm = ({ register }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Registration form</h2>
       <label htmlFor="username">Username</label>
       <input
         id="username"

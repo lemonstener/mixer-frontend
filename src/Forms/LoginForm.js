@@ -40,6 +40,7 @@ const LoginForm = ({ login }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <h2>Login form</h2>
         <label htmlFor="username">Username</label>
         <input
           id="username"

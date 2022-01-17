@@ -47,10 +47,7 @@ const Cocktail = () => {
     <div className="Cocktail">
       <div className="Cocktail-title">{data.name}</div>
       <div className="Cocktail-contents">
-        <div
-          className="Cocktail-img"
-          style={{ backgroundImage: `url(${data.img})` }}
-        ></div>
+        <img src={data.img} />
         <div className="Cocktail-ingredients">
           {data.ingredients.map((i) => {
             return (
@@ -59,12 +56,7 @@ const Cocktail = () => {
                 key={uuidv4()}
                 className="Cocktail-ingredient"
               >
-                <div
-                  className="Cocktail-ingredient-img"
-                  style={{
-                    backgroundImage: `url(${i.img_sm.replace(/ /g, "%20")})`,
-                  }}
-                ></div>
+                <img src={i.img_sm} />
                 <div className="Cocktail-measure">
                   {i.measure !== "null" && `${i.measure} ${i.name}`}
                   {i.measure === "null" && `${i.name}`}
