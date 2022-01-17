@@ -39,10 +39,6 @@ const Navbar = ({ logout }) => {
           )}
         </div>
 
-        {/* <div className="Navbar-dropdown" onClick={dropdownCocktails}>
-          <div className="Navbar-dropdown-button">Search</div>
-        </div> */}
-
         {!user && (
           <div className="Navbar-btn">
             <NavLink to="/login">Sign in</NavLink>
