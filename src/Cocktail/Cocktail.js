@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react/cjs/react.development";
 import { v4 as uuidv4 } from "uuid";
+import Loading from "../Loading/Loading";
 import UserContext from "../UserContext";
 import "./Cocktail.css";
 
@@ -43,7 +44,7 @@ const Cocktail = () => {
     getData();
   }, []);
 
-  if (loading) return "Loading...";
+  if (loading) return <Loading />;
 
   return (
     <div className="Cocktail">

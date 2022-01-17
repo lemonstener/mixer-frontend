@@ -1,13 +1,16 @@
 import axios from "axios";
 import { useState } from "react/cjs/react.development";
+import Loading from "../Loading/Loading";
 import ResultBoard from "../ResultBoard/ResultBoard";
 
 const CocktailSearch = () => {
   const [data, setData] = useState([]);
   const [term, setTerm] = useState("");
   const [message, setMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const searchTerm = async (string) => {
+    setLoading(true);
     try {
       const res = await axios.get(
         `http://127.0.0.1:3001/cocktails/like/${string}`
@@ -18,6 +21,7 @@ const CocktailSearch = () => {
       setMessage(`Nothing matching the term '${string}'`);
       setData([]);
     }
+    setLoading(false);
   };
 
   const handleChange = (e) => {
@@ -43,7 +47,10 @@ const CocktailSearch = () => {
         <button>Search</button>
       </form>
 
-      <ResultBoard message={message} results={data} type="cocktails" />
+      {loading === true && <Loading />}
+      {loading === false && (
+        <ResultBoard message={message} results={data} type="cocktails" />
+      )}
     </div>
   );
 };

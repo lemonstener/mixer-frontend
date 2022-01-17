@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react/cjs/react.development";
+import Loading from "../Loading/Loading";
 import ResultBoard from "../ResultBoard/ResultBoard";
 import UserContext from "../UserContext";
 
@@ -21,7 +22,7 @@ const Profile = () => {
     getUserData();
   }, []);
 
-  if (loading) return "Loading...";
+  if (loading) return <Loading />;
   return (
     <div
       style={{

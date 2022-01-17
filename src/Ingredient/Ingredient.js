@@ -3,6 +3,7 @@ import { useState, useEffect } from "react/cjs/react.development";
 import axios from "axios";
 import "./Ingredient.css";
 import ResultBoard from "../ResultBoard/ResultBoard";
+import Loading from "../Loading/Loading";
 
 const Ingredient = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const Ingredient = () => {
     getData();
   }, []);
 
-  if (loading) return "Loading...";
+  if (loading) return <Loading />;
 
   if (error)
     return (

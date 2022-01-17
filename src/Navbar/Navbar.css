@@ -10,6 +10,27 @@
   box-shadow: 2px 2px 5px red;
 }
 
+.Navbar-logo-holder {
+  width: 2vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 1vw;
+  margin: auto auto;
+  border-radius: 5px;
+}
+
+.Navbar-logo {
+  width: 3vw;
+  height: 5.4vh;
+  background-image: url(../mixer.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .Navbar-btn,
 .Navbar-dropdown-btn,
 .Navbar-toggle {

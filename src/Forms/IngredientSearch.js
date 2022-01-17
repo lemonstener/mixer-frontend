@@ -1,13 +1,16 @@
 import axios from "axios";
 import { useState } from "react/cjs/react.development";
 import ResultBoard from "../ResultBoard/ResultBoard";
+import Loading from "../Loading/Loading";
 
 const IngredientSearch = () => {
   const [data, setData] = useState([]);
   const [term, setTerm] = useState("");
   const [message, setMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const searchTerm = async (string) => {
+    setLoading(true);
     try {
       const res = await axios.get(
         `http://127.0.0.1:3001/ingredients/like/${string}`
@@ -18,6 +21,7 @@ const IngredientSearch = () => {
       setMessage(`Nothing matching the term '${string}'`);
       setData([]);
     }
+    setLoading(false);
   };
 
   const handleChange = (e) => {
@@ -42,7 +46,10 @@ const IngredientSearch = () => {
         />
         <button>Search</button>
       </form>
-      <ResultBoard message={message} results={data} type="ingredients" />
+      {loading === true && <Loading />}
+      {loading === false && (
+        <ResultBoard message={message} results={data} type="ingredients" />
+      )}
     </>
   );
 };

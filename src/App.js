@@ -5,6 +5,7 @@ import { useEffect, useState } from "react/cjs/react.development";
 import axios from "axios";
 import { decodeToken, Jwt } from "react-jwt";
 import UserContext from "./UserContext";
+import Loading from "./Loading/Loading";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -88,7 +89,7 @@ function App() {
     );
   };
 
-  if (loading) return "Loading...";
+  if (loading) return <Loading />;
 
   return (
     <BrowserRouter>

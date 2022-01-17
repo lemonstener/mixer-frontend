@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loading from "../Loading/Loading";
 import ResultBoard from "../ResultBoard/ResultBoard";
 
 const Homepage = () => {
@@ -16,7 +17,7 @@ const Homepage = () => {
     getCocktails();
   }, []);
 
-  if (loading) return "Loading...";
+  if (loading) return <Loading />;
   return (
     <div>
       <ResultBoard

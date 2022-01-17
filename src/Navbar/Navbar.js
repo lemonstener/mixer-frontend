@@ -18,8 +18,10 @@ const Navbar = ({ logout }) => {
   return (
     <>
       <nav className="Navbar">
-        <div className="Navbar-btn">
-          <NavLink to="/">Home</NavLink>
+        <div className="Navbar-logo-holder">
+          <NavLink to="/">
+            <div className="Navbar-logo" />
+          </NavLink>
         </div>
 
         <div className="Navbar-btn">
