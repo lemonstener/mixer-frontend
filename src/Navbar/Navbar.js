@@ -9,9 +9,10 @@ const Navbar = ({ logout }) => {
   const [toggleIngredients, setToggleIngredients] = useState(false);
   const [toggleCocktails, setToggleCocktails] = useState(false);
 
-  const dropdownCocktails = () => {
+  const dropdownCocktails = (e) => {
     setToggleCocktails((toggleCocktails) => !toggleCocktails);
     setToggleIngredients(false);
+    console.log(e.target.offsetWidth);
   };
 
   return (

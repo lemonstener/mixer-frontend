@@ -12,6 +12,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: "Roboto", sans-serif;
+  scrollbar-width: none;
 }
 
 code {

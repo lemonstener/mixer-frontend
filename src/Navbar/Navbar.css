@@ -11,39 +11,42 @@
 }
 
 .Navbar-btn,
-.Navbar-dropdown-btn {
+.Navbar-dropdown-btn,
+.Navbar-toggle {
   color: white;
   margin-right: 30px;
   padding: 6px;
   border-radius: 5px;
   transition: background-color 0.15s;
   cursor: pointer;
-}
-
-.Navbar-dropdown {
-  position: relative;
+  font-size: 1vw;
+  text-align: center;
 }
 
 .Navbar-btn:hover,
-.Navbar-dropdown-btn:hover {
+.Navbar-dropdown-btn:hover,
+.Navbar-toggle:hover {
   background-color: rgba(255, 206, 66, 0.99);
   color: black;
 }
 
-.Navbar-btn:hover a {
+.Navbar-btn:hover a,
+.Navbar-toggle:hover a {
   color: black;
 }
 
-.Navbar-btn a {
+a {
   color: white;
   text-decoration: none;
 }
 
-.Navbar-btn-toggle-menu {
-  margin-left: 80vw;
-  width: 5vw;
+.Navbar-toggle-menu {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: -5px;
 }
 
 .Navbar-toggle {
-  width: 10%;
+  text-align: left;
+  background-color: rgba(0, 20, 34, 0.9);
 }

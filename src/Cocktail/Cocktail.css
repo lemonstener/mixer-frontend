@@ -56,27 +56,40 @@
 }
 
 .Cocktail-measure {
-  font-size: 0.9vw;
+  font-size: 0.7vw;
   margin: 3%;
   font-weight: bold;
 }
 
 .Cocktail-likes {
   margin-top: 1vh;
-  color: #ffcccb;
+  color: #f47174;
   cursor: pointer;
   font-size: 2.5vw;
+  transition: all 0.3s;
 }
 
 .Cocktail-likes:hover {
   transform: scale(1.1);
-  text-shadow: 0.3px 0 0 rgba(255, 206, 66, 0.99),
-    0 -0.3px 0 rgba(255, 206, 66, 0.99), 0 0.3px 0 rgba(255, 206, 66, 0.99),
-    -0.3px 0 0 rgba(255, 206, 66, 0.99);
 }
 
 .Cocktail-instructions {
   margin-top: 2%;
   font-size: 1.8vw;
   padding: 2%;
+}
+
+.Cocktail-instructions ol {
+  width: 90%;
+  text-align: left;
+  overflow-wrap: break-word;
+  font-size: 1.4vw;
+  padding: 10px;
+  margin: 20px;
+}
+
+@media (min-width: 1000px) {
+  .Cocktail {
+    width: 30%;
+  }
 }

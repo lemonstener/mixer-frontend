@@ -2,6 +2,7 @@
   width: 18%;
   cursor: pointer;
   margin-bottom: 3%;
+  margin-left: 2%;
 }
 
 .Result-img {
@@ -27,4 +28,11 @@
 .Result:hover .Result-name {
   color: rgba(255, 206, 66, 0.99);
   background-color: black;
+}
+
+@media (min-width: 1000px) {
+  .Result {
+    width: 12%;
+    height: 20%;
+  }
 }

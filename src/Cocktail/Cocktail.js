@@ -13,6 +13,7 @@ const Cocktail = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
+  const [instructions, setInstructions] = useState([]);
 
   const navigateTo = async (int) => {
     navigate(`/ingredients/details/${int}`);
@@ -32,6 +33,7 @@ const Cocktail = () => {
       try {
         const res = await axios.get(`http://127.0.0.1:3001/cocktails/id/${id}`);
         setData(res.data);
+        setInstructions(res.data.instructions.split(". "));
         if (favorites.includes(res.data.id)) setLiked(true);
         setLoading(false);
       } catch (error) {
@@ -76,7 +78,16 @@ const Cocktail = () => {
       </div>
       <div className="Cocktail-instructions">
         <h3>Instructions</h3>
-        <p>{data.instructions}</p>
+        {instructions.length > 1 &&
+          instructions.map((i) => {
+            return (
+              <p>
+                {`${instructions.indexOf(i) + 1}. `}
+                {i}
+              </p>
+            );
+          })}
+        {instructions.length === 1 && <p>{data.instructions}</p>}
       </div>
     </div>
   );
