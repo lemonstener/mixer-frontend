@@ -20,7 +20,7 @@
 }
 
 .Result:hover .Result-img {
-  box-shadow: 1px 1px 5px gray;
+  box-shadow: 1px 1px 5px red;
   transform: scale(1.1);
 }
 

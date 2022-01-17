@@ -1,9 +1,6 @@
 .Cocktail {
-  width: 80vw;
-  padding: 1vh;
-  margin-left: 10vw;
-  margin-top: 5vh;
-  margin-bottom: 1vh;
+  width: 40%;
+  margin: 5% auto;
   text-align: center;
   color: white;
   border-radius: 3vh;
@@ -11,28 +8,24 @@
   flex-direction: column;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 1px 2px 5px rgba(255, 206, 66, 0.99);
 }
 
 .Cocktail-title {
-  margin: 1vh;
+  margin: 2%;
   font-size: 3vh;
   font-weight: bold;
 }
 
 .Cocktail img {
   width: 45%;
-  margin-left: 5%;
-}
-
-.Cocktail-contents {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  margin: 2% 27.5%;
+  border-radius: 10px;
 }
 
 .Cocktail-ingredients {
-  width: 40vw;
-  height: 40vh;
+  width: 60%;
+  margin: 2% auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -42,12 +35,16 @@
 }
 
 .Cocktail-ingredient {
-  margin-top: 1%;
+  margin-top: 4%;
   width: 25%;
   height: 25%;
   cursor: pointer;
   box-sizing: border-box;
   transition: all 0.1s;
+}
+
+.Cocktail-ingredient img {
+  margin: auto;
 }
 
 .Cocktail-ingredient:hover {
@@ -60,7 +57,7 @@
 
 .Cocktail-measure {
   font-size: 0.9vw;
-  margin-bottom: 0vh;
+  margin: 3%;
   font-weight: bold;
 }
 
@@ -68,10 +65,18 @@
   margin-top: 1vh;
   color: #ffcccb;
   cursor: pointer;
-  font-size: 2.5vh;
+  font-size: 2.5vw;
+}
+
+.Cocktail-likes:hover {
+  transform: scale(1.1);
+  text-shadow: 0.3px 0 0 rgba(255, 206, 66, 0.99),
+    0 -0.3px 0 rgba(255, 206, 66, 0.99), 0 0.3px 0 rgba(255, 206, 66, 0.99),
+    -0.3px 0 0 rgba(255, 206, 66, 0.99);
 }
 
 .Cocktail-instructions {
-  margin-top: 1vh;
-  font-size: 2.5vh;
+  margin-top: 2%;
+  font-size: 1.8vw;
+  padding: 2%;
 }

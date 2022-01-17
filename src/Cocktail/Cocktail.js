@@ -46,26 +46,26 @@ const Cocktail = () => {
   return (
     <div className="Cocktail">
       <div className="Cocktail-title">{data.name}</div>
-      <div className="Cocktail-contents">
-        <img src={data.img} />
-        <div className="Cocktail-ingredients">
-          {data.ingredients.map((i) => {
-            return (
-              <div
-                onClick={() => navigateTo(i.id)}
-                key={uuidv4()}
-                className="Cocktail-ingredient"
-              >
-                <img src={i.img_sm} />
-                <div className="Cocktail-measure">
-                  {i.measure !== "null" && `${i.measure} ${i.name}`}
-                  {i.measure === "null" && `${i.name}`}
-                </div>
+
+      <img src={data.img} />
+      <div className="Cocktail-ingredients">
+        {data.ingredients.map((i) => {
+          return (
+            <div
+              onClick={() => navigateTo(i.id)}
+              key={uuidv4()}
+              className="Cocktail-ingredient"
+            >
+              <img src={i.img_sm} />
+              <div className="Cocktail-measure">
+                {i.measure !== "null" && `${i.measure} ${i.name}`}
+                {i.measure === "null" && `${i.name}`}
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
+
       <div onClick={updateCocktail} className="Cocktail-likes">
         {liked === true ? (
           <i className="fas fa-heart"></i>
