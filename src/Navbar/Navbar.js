@@ -50,7 +50,7 @@ const Navbar = ({ logout }) => {
               <NavLink to="/profile">{user}</NavLink>
             </div>
             <div className="Navbar-btn" onClick={logout}>
-              <NavLink to="/">Sign out</NavLink>
+              <NavLink to="/">Logout</NavLink>
             </div>
           </>
         )}

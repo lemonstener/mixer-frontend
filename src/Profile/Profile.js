@@ -23,14 +23,23 @@ const Profile = () => {
 
   if (loading) return "Loading...";
   return (
-    <>
+    <div
+      style={{
+        textAlign: "center",
+        color: "white",
+        textShadow: "1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000",
+      }}
+    >
       <h1>{user}</h1>
-      <ResultBoard
-        message={`${user}'s favorite cocktails`}
-        results={data}
-        type="cocktails"
-      />
-    </>
+      {data.length === 0 && <p>You have not favorited any cocktails.</p>}
+      {data.length > 0 && (
+        <ResultBoard
+          message={`Your favorite cocktails`}
+          results={data}
+          type="cocktails"
+        />
+      )}
+    </div>
   );
 };
 

@@ -9,11 +9,13 @@
 }
 
 .ResultBoard-header {
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
   width: 100%;
   text-align: center;
   font-size: 3vh;
   color: black;
   font-weight: bold;
+  color: white;
 }
 
 .ResultBoard-holder {
@@ -23,5 +25,5 @@
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  align-items: center;
+  /* align-items: center; */
 }

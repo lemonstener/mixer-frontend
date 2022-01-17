@@ -15,13 +15,14 @@
 
 .Navbar-btn {
   margin: 1vw;
-  width: 9vw;
+  width: 6vw;
   height: 1.5vh;
-  background-color: yellow;
+  background-color: rgba(255, 206, 66, 1);
   padding: 8px 20px;
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
+  font-size: 1.8vh;
 }
 
 .Navbar-btn:hover,
@@ -39,7 +40,7 @@
   border: 1px solid black;
   margin-top: 5px;
   width: 100%;
-  background-color: yellow;
+  background-color: rgba(255, 206, 66, 1);
 }
 
 .Navbar-toggle {

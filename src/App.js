@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import RouteList from "./Navbar/RouteList";
 import Navbar from "./Navbar/Navbar";
@@ -29,6 +28,7 @@ function App() {
           setUser(null);
         }
       }
+      setLoading(false);
     };
     getCurrentUser();
   }, [token]);
@@ -72,9 +72,27 @@ function App() {
     localStorage.clear();
   };
 
+  const favCocktail = async (id) => {
+    if (!token) return;
+    if (favorites.includes(id)) {
+      const idx = favorites.indexOf(id);
+      favorites.splice(idx, 1);
+    } else {
+      favorites.push(id);
+    }
+    const res = await axios.post(
+      `http://127.0.0.1:3001/cocktails/favorite/${id}`,
+      {
+        _token: token,
+      }
+    );
+  };
+
+  if (loading) return "Loading...";
+
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{ user, setUser, favorites }}>
+      <UserContext.Provider value={{ user, setUser, favorites, favCocktail }}>
         <Navbar logout={logout} />
         <RouteList login={login} register={register} />
       </UserContext.Provider>

@@ -30,7 +30,7 @@ const Ingredient = () => {
 
   if (error)
     return (
-      <h1 style={{ color: "white" }}>
+      <h1>
         There are currently no cocktails made with {data.name}
         in the database
       </h1>

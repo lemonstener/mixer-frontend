@@ -31,8 +31,9 @@ const IngredientSearch = () => {
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
+        <p style={{ fontSize: "2vh" }}>Type the ingredient name here</p>
         <input
           type="text"
           placeholder="ex. 'Vodka'"
@@ -41,10 +42,8 @@ const IngredientSearch = () => {
         />
         <button>Search</button>
       </form>
-      {data.length > 1 && (
-        <ResultBoard message={message} results={data} type="ingredients" />
-      )}
-    </div>
+      <ResultBoard message={message} results={data} type="ingredients" />
+    </>
   );
 };
 

@@ -33,6 +33,7 @@ const CocktailSearch = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <p style={{ fontSize: "2vh" }}>Type the cocktail name here</p>
         <input
           type="text"
           placeholder="ex. 'Long Island'"
@@ -41,9 +42,8 @@ const CocktailSearch = () => {
         />
         <button>Search</button>
       </form>
-      {data.length > 1 && (
-        <ResultBoard message={message} results={data} type="cocktails" />
-      )}
+
+      <ResultBoard message={message} results={data} type="cocktails" />
     </div>
   );
 };

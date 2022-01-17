@@ -1,17 +1,25 @@
-.Result {
-  width: 15vw;
-  height: 22vh;
+/* .Result {
+  width: 15%;
+  height: 22%;
   text-align: center;
   margin: 1.5vh;
   cursor: pointer;
-  background-color: rgba(137, 207, 240, 0.8);
+  background-color: rgba(255, 206, 66, 0.99);
   border-radius: 2vh;
   display: flex;
   flex-direction: column;
 }
 
+.Result-img {
+  margin-left: 15%;
+  margin-top: 20%;
+  width: 70%;
+  height: 80%;
+  border-radius: 5px;
+}
+
 .Result-thumb {
-  margin-top: 1vh;
+  margin-top: 5%;
   margin-left: 1.5vw;
   width: 12vw;
   height: 18vh;
@@ -21,13 +29,49 @@
 }
 
 .Result-name {
-  font-size: 1.8vh;
+  font-size: 1.5vh;
   text-align: center;
   font-weight: bold;
   padding: 0.5vh;
   word-wrap: break-word;
+  width: 100%;
+}
+
+.Result:hover {
+  background-color: rgba(255, 206, 66, 0.99);
 }
 
 .Result:hover .Result-name {
-  color: #4c86a8;
+  color: #ff645b;
+} */
+
+.Result {
+  width: 18%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.Result-img {
+  width: 85%;
+  height: 85%;
+  border-radius: 10%;
+  transition: all 0.1s;
+}
+
+.Result-name {
+  width: 85%;
+  text-align: center;
+  font-size: 1vw;
+  box-sizing: border-box;
+  transition: all 0.4s;
+}
+
+.Result:hover .Result-img {
+  box-shadow: 1px 1px 5px gray;
+  transform: scale(1.1);
+}
+
+.Result:hover .Result-name {
+  color: rgba(255, 206, 66, 0.99);
+  background-color: black;
 }
