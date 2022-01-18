@@ -1,8 +1,7 @@
-import axios from "axios";
 import { useNavigate } from "react-router";
 import { useState } from "react/cjs/react.development";
 import { v4 as uuidv4 } from "uuid";
-import errorMessages from "../helpers/errors";
+import { errorMessages } from "../helpers/helpers";
 
 const RegisterForm = ({ register }) => {
   const initialState = {

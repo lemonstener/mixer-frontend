@@ -9,4 +9,6 @@ const errorMessages = {
   "Empty fields": "Please fill up the form completely",
 };
 
-export default errorMessages;
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+
+export { errorMessages, BASE_URL };

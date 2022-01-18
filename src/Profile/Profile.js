@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react/cjs/react.development";
+import { BASE_URL } from "../helpers/helpers";
 import Loading from "../Loading/Loading";
 import ResultBoard from "../ResultBoard/ResultBoard";
 import UserContext from "../UserContext";
@@ -15,9 +16,7 @@ const Profile = () => {
   useEffect(() => {
     const getUserData = async () => {
       if (!user) navigate("/");
-      const res = await axios.get(
-        `https://mixerdb.herokuapp.com/users/${user}`
-      );
+      const res = await axios.get(`${BASE_URL}/users/${user}`);
       setData(res.data.favorites);
       setLoading(false);
     };

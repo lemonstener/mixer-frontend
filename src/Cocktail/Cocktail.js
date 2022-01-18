@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react/cjs/react.development";
 import { v4 as uuidv4 } from "uuid";
+import { BASE_URL } from "../helpers/helpers";
 import Loading from "../Loading/Loading";
 import UserContext from "../UserContext";
 import "./Cocktail.css";
@@ -45,9 +46,7 @@ const Cocktail = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://mixerdb.herokuapp.com/cocktails/id/${id}`
-        );
+        const res = await axios.get(`${BASE_URL}/cocktails/id/${id}`);
         setData(res.data);
         const text = splitInstructions(res.data.instructions);
         setInstructions(text);

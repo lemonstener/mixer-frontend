@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../helpers/helpers";
 import Loading from "../Loading/Loading";
 import ResultBoard from "../ResultBoard/ResultBoard";
 
@@ -9,9 +10,7 @@ const Homepage = () => {
 
   useEffect(() => {
     const getCocktails = async () => {
-      const res = await axios.get(
-        "https://mixerdb.herokuapp.com/cocktails/random"
-      );
+      const res = await axios.get(`${BASE_URL}/cocktails/random`);
       setCocktails(res.data);
       setLoading(false);
     };

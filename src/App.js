@@ -6,6 +6,7 @@ import axios from "axios";
 import { decodeToken, Jwt } from "react-jwt";
 import UserContext from "./UserContext";
 import Loading from "./Loading/Loading";
+import { BASE_URL } from "./helpers/helpers";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -18,9 +19,7 @@ function App() {
       if (token) {
         try {
           const { username } = decodeToken(token);
-          const res = await axios.get(
-            `https://mixerdb.herokuapp.com/users/${username}`
-          );
+          const res = await axios.get(`${BASE_URL}/users/${username}`);
 
           const userFavorites = res.data.favorites.map((f) => f.id);
           setFavorites(userFavorites);
@@ -36,13 +35,10 @@ function App() {
 
   const login = async (username, password) => {
     try {
-      const res = await axios.post(
-        `https://mixerdb.herokuapp.com/users/login`,
-        {
-          username,
-          password,
-        }
-      );
+      const res = await axios.post(`${BASE_URL}/users/login`, {
+        username,
+        password,
+      });
       const resToken = res.data._token;
       setToken(resToken);
       localStorage.setItem("mixer", resToken);
@@ -54,14 +50,11 @@ function App() {
 
   const register = async (username, password, email) => {
     try {
-      const res = await axios.post(
-        `https://mixerdb.herokuapp.com/users/register`,
-        {
-          username,
-          password,
-          email,
-        }
-      );
+      const res = await axios.post(`${BASE_URL}/users/register`, {
+        username,
+        password,
+        email,
+      });
       const resToken = res.data._token;
       setToken(resToken);
       localStorage.setItem("mixer", resToken);
@@ -86,12 +79,9 @@ function App() {
     } else {
       favorites.push(id);
     }
-    const res = await axios.post(
-      `https://mixerdb.herokuapp.com/cocktails/favorite/${id}`,
-      {
-        _token: token,
-      }
-    );
+    const res = await axios.post(`${BASE_URL}/cocktails/favorite/${id}`, {
+      _token: token,
+    });
   };
 
   if (loading) return <Loading />;

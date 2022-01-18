@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react/cjs/react.development";
+import { BASE_URL } from "../helpers/helpers";
 import Loading from "../Loading/Loading";
 import ResultBoard from "../ResultBoard/ResultBoard";
 
@@ -12,9 +13,7 @@ const CocktailSearch = () => {
   const searchTerm = async (string) => {
     setLoading(true);
     try {
-      const res = await axios.get(
-        `https://mixerdb.herokuapp.com/cocktails/like/${string}`
-      );
+      const res = await axios.get(`${BASE_URL}/cocktails/like/${string}`);
       setMessage(`Cocktails matching the term '${string}'`);
       setData(res.data);
     } catch (error) {

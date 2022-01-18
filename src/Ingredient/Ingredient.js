@@ -4,6 +4,7 @@ import axios from "axios";
 import "./Ingredient.css";
 import ResultBoard from "../ResultBoard/ResultBoard";
 import Loading from "../Loading/Loading";
+import { BASE_URL } from "../helpers/helpers";
 
 const Ingredient = () => {
   const { id } = useParams();
@@ -14,9 +15,7 @@ const Ingredient = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(
-          `https://mixerdb.herokuapp.com/ingredients/cocktails/${id}`
-        );
+        const res = await axios.get(`${BASE_URL}/ingredients/cocktails/${id}`);
         setData(res.data);
         setLoading(false);
       } catch (error) {

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react/cjs/react.development";
 import ResultBoard from "../ResultBoard/ResultBoard";
 import Loading from "../Loading/Loading";
+import { BASE_URL } from "../helpers/helpers";
 
 const IngredientSearch = () => {
   const [data, setData] = useState([]);
@@ -12,9 +13,7 @@ const IngredientSearch = () => {
   const searchTerm = async (string) => {
     setLoading(true);
     try {
-      const res = await axios.get(
-        `https://mixerdb.herokuapp.com/ingredients/like/${string}`
-      );
+      const res = await axios.get(`${BASE_URL}/ingredients/like/${string}`);
       setMessage(`Ingredients matching the term '${string}'`);
       setData(res.data);
     } catch (error) {
