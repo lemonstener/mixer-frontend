@@ -30,6 +30,7 @@ const IngredientSearch = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (term.trim() === "") return;
     await searchTerm(term);
     setTerm("");
   };

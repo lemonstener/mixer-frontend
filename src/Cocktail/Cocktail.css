@@ -1,5 +1,5 @@
 .Cocktail {
-  width: 60%;
+  width: 80%;
   margin: 5% auto;
   text-align: center;
   color: white;
@@ -56,7 +56,7 @@
 }
 
 .Cocktail-measure {
-  font-size: 0.7vw;
+  font-size: 0.7em;
   margin: 3%;
   font-weight: bold;
 }
@@ -90,6 +90,6 @@
 
 @media (min-width: 1000px) {
   .Cocktail {
-    width: 30%;
+    width: 50%;
   }
 }
