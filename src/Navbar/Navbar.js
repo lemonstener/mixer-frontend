@@ -6,25 +6,31 @@ import "./Navbar.css";
 
 const Navbar = ({ logout }) => {
   const { user } = useContext(UserContext);
-  const [toggleIngredients, setToggleIngredients] = useState(false);
+
   const [toggleCocktails, setToggleCocktails] = useState(false);
 
   const dropdownCocktails = (e) => {
     setToggleCocktails((toggleCocktails) => !toggleCocktails);
-    setToggleIngredients(false);
-    console.log(e.target.offsetWidth);
+  };
+
+  const prepareLogout = () => {
+    setToggleCocktails(false);
+    logout();
   };
 
   return (
     <>
       <nav className="Navbar">
-        <div className="Navbar-logo-holder">
+        <div
+          className="Navbar-logo-holder"
+          onClick={() => setToggleCocktails(false)}
+        >
           <NavLink to="/">
             <div className="Navbar-logo" />
           </NavLink>
         </div>
 
-        <div className="Navbar-btn">
+        <div className="Navbar-btn" onClick={() => setToggleCocktails(false)}>
           <NavLink to="/cocktails">Cocktails</NavLink>
         </div>
 
@@ -43,17 +49,20 @@ const Navbar = ({ logout }) => {
         </div>
 
         {!user && (
-          <div className="Navbar-btn">
+          <div className="Navbar-btn" onClick={() => setToggleCocktails(false)}>
             <NavLink to="/login">Sign in</NavLink>
           </div>
         )}
 
         {user && (
           <>
-            <div className="Navbar-btn">
+            <div
+              className="Navbar-btn"
+              onClick={() => setToggleCocktails(false)}
+            >
               <NavLink to="/profile">{user}</NavLink>
             </div>
-            <div className="Navbar-btn" onClick={logout}>
+            <div className="Navbar-btn" onClick={prepareLogout}>
               <NavLink to="/">Logout</NavLink>
             </div>
           </>

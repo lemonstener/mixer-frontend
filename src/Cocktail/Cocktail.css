@@ -1,5 +1,5 @@
 .Cocktail {
-  width: 40%;
+  width: 60%;
   margin: 5% auto;
   text-align: center;
   color: white;
@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 1px 2px 5px rgba(255, 206, 66, 0.99);
+  box-shadow: 1px 2px 5px red;
 }
 
 .Cocktail-title {
@@ -75,7 +75,7 @@
 
 .Cocktail-instructions {
   margin-top: 2%;
-  font-size: 1.8vw;
+  font-size: 1rem;
   padding: 2%;
 }
 

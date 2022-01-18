@@ -43,7 +43,6 @@ function App() {
           password,
         }
       );
-      console.log(res);
       const resToken = res.data._token;
       setToken(resToken);
       localStorage.setItem("mixer", resToken);
@@ -75,7 +74,7 @@ function App() {
   const logout = () => {
     setUser(null);
     setToken(null);
-    setFavorites(null);
+    setFavorites([]);
     localStorage.clear();
   };
 

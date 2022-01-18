@@ -20,6 +20,19 @@ const Cocktail = () => {
     navigate(`/ingredients/details/${int}`);
   };
 
+  const splitInstructions = (text) => {
+    let array = [];
+    if (text.includes("1)")) {
+      const copy = text.replaceAll(")", ".");
+      array = copy.split(/\r\n|\n\r|\n|\r/);
+    } else if (text.includes("1.")) {
+      array = [text];
+    } else {
+      array = text.split(". ");
+    }
+    return array;
+  };
+
   const updateCocktail = () => {
     if (!user) return;
     setLiked((liked) => !liked);
@@ -36,7 +49,8 @@ const Cocktail = () => {
           `https://mixerdb.herokuapp.com/cocktails/id/${id}`
         );
         setData(res.data);
-        setInstructions(res.data.instructions.split(". "));
+        const text = splitInstructions(res.data.instructions);
+        setInstructions(text);
         if (favorites.includes(res.data.id)) setLiked(true);
         setLoading(false);
       } catch (error) {
@@ -84,10 +98,7 @@ const Cocktail = () => {
         {instructions.length > 1 &&
           instructions.map((i) => {
             return (
-              <p key={uuidv4()}>
-                {`${instructions.indexOf(i) + 1}. `}
-                {i}
-              </p>
+              <p key={uuidv4()}>{i[i.length - 1] === "." ? i : i + "."}</p>
             );
           })}
         {instructions.length === 1 && <p>{data.instructions}</p>}
