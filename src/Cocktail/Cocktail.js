@@ -32,7 +32,9 @@ const Cocktail = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`http://127.0.0.1:3001/cocktails/id/${id}`);
+        const res = await axios.get(
+          `https://mixerdb.herokuapp.com/cocktails/id/${id}`
+        );
         setData(res.data);
         setInstructions(res.data.instructions.split(". "));
         if (favorites.includes(res.data.id)) setLiked(true);

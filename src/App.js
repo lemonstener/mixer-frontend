@@ -19,7 +19,7 @@ function App() {
         try {
           const { username } = decodeToken(token);
           const res = await axios.get(
-            `http://127.0.0.1:3001/users/${username}`
+            `https://mixerdb.herokuapp.com/users/${username}`
           );
 
           const userFavorites = res.data.favorites.map((f) => f.id);
@@ -36,10 +36,13 @@ function App() {
 
   const login = async (username, password) => {
     try {
-      const res = await axios.post(`http://127.0.0.1:3001/users/login`, {
-        username,
-        password,
-      });
+      const res = await axios.post(
+        `https://mixerdb.herokuapp.com/users/login`,
+        {
+          username,
+          password,
+        }
+      );
       console.log(res);
       const resToken = res.data._token;
       setToken(resToken);
@@ -52,11 +55,14 @@ function App() {
 
   const register = async (username, password, email) => {
     try {
-      const res = await axios.post(`http://127.0.0.1:3001/users/register`, {
-        username,
-        password,
-        email,
-      });
+      const res = await axios.post(
+        `https://mixerdb.herokuapp.com/users/register`,
+        {
+          username,
+          password,
+          email,
+        }
+      );
       const resToken = res.data._token;
       setToken(resToken);
       localStorage.setItem("mixer", resToken);
@@ -82,7 +88,7 @@ function App() {
       favorites.push(id);
     }
     const res = await axios.post(
-      `http://127.0.0.1:3001/cocktails/favorite/${id}`,
+      `https://mixerdb.herokuapp.com/cocktails/favorite/${id}`,
       {
         _token: token,
       }

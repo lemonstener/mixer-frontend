@@ -9,7 +9,7 @@ const AllCocktails = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(`http://127.0.0.1:3001/cocktails`);
+      const res = await axios.get(`https://mixerdb.herokuapp.com/cocktails`);
       setData(res.data);
       setLoading(false);
     };

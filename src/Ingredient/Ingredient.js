@@ -15,7 +15,7 @@ const Ingredient = () => {
     const getData = async () => {
       try {
         const res = await axios.get(
-          `http://127.0.0.1:3001/ingredients/cocktails/${id}`
+          `https://mixerdb.herokuapp.com/ingredients/cocktails/${id}`
         );
         setData(res.data);
         setLoading(false);

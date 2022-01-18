@@ -13,7 +13,7 @@ const IngredientSearch = () => {
     setLoading(true);
     try {
       const res = await axios.get(
-        `http://127.0.0.1:3001/ingredients/like/${string}`
+        `https://mixerdb.herokuapp.com/ingredients/like/${string}`
       );
       setMessage(`Ingredients matching the term '${string}'`);
       setData(res.data);

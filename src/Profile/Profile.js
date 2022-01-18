@@ -15,7 +15,9 @@ const Profile = () => {
   useEffect(() => {
     const getUserData = async () => {
       if (!user) navigate("/");
-      const res = await axios.get(`http://127.0.0.1:3001/users/${user}`);
+      const res = await axios.get(
+        `https://mixerdb.herokuapp.com/users/${user}`
+      );
       setData(res.data.favorites);
       setLoading(false);
     };

@@ -13,7 +13,7 @@ const CocktailSearch = () => {
     setLoading(true);
     try {
       const res = await axios.get(
-        `http://127.0.0.1:3001/cocktails/like/${string}`
+        `https://mixerdb.herokuapp.com/cocktails/like/${string}`
       );
       setMessage(`Cocktails matching the term '${string}'`);
       setData(res.data);
