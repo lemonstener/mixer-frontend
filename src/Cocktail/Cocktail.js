@@ -82,7 +82,7 @@ const Cocktail = () => {
         {instructions.length > 1 &&
           instructions.map((i) => {
             return (
-              <p>
+              <p key={uuidv4()}>
                 {`${instructions.indexOf(i) + 1}. `}
                 {i}
               </p>
