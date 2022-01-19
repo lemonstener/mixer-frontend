@@ -3,7 +3,7 @@ import RouteList from "./Navbar/RouteList";
 import Navbar from "./Navbar/Navbar";
 import { useEffect, useState } from "react/cjs/react.development";
 import axios from "axios";
-import { decodeToken, Jwt } from "react-jwt";
+import { decodeToken } from "react-jwt";
 import UserContext from "./UserContext";
 import Loading from "./Loading/Loading";
 import { BASE_URL } from "./helpers/helpers";
