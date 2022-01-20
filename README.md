@@ -1,6 +1,6 @@
 # Mixer
 
-![Mixer](logo512.png)
+![Mixer](logo192.png)
 
 ## Overview
 
