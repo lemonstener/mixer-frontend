@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Ingredient.css";
@@ -8,19 +8,19 @@ import { BASE_URL } from "../helpers/helpers";
 
 const Ingredient = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
       try {
         const res = await axios.get(`${BASE_URL}/ingredients/cocktails/${id}`);
         setData(res.data);
+        console.log(res.data.img_lg);
         setLoading(false);
       } catch (error) {
-        setError(true);
-        setLoading(false);
+        navigate("/");
       }
     };
     getData();
@@ -28,26 +28,33 @@ const Ingredient = () => {
 
   if (loading) return <Loading />;
 
-  if (error)
-    return (
-      <h1>
-        There are currently no cocktails made with {data.name}
-        in the database
-      </h1>
-    );
-
   return (
     <>
       <div className="Ingredient">
-        <img src={data.img_md} alt={data.name} />
+        <img src={data.img_md.replaceAll(" ", "%20")} alt={data.name} />
       </div>
-      <ResultBoard
-        message={`Cocktails with ${`${
-          data.name[0].toUpperCase() + data.name.substring(1, data.name.length)
-        }`}`}
-        results={data.cocktails}
-        type="cocktails"
-      />
+      {data.cocktails.length > 0 && (
+        <ResultBoard
+          message={`Cocktails with ${`${
+            data.name[0].toUpperCase() +
+            data.name.substring(1, data.name.length)
+          }`}`}
+          results={data.cocktails}
+          type="cocktails"
+        />
+      )}
+      {data.cocktails.length === 0 && (
+        <p
+          style={{
+            color: "white",
+            textAlign: "center",
+            backgroundColor: "black",
+            padding: "2px",
+          }}
+        >
+          There are no cocktails with {data.name} in our database... yet
+        </p>
+      )}
     </>
   );
 };
