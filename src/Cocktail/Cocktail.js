@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { BASE_URL } from "../helpers/helpers";
 import Loading from "../Loading/Loading";

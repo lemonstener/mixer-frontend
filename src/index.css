@@ -28,7 +28,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+  width: 40%;
   padding: 2vh;
   margin-left: 30vw;
   margin-top: 4vh;
@@ -69,4 +69,15 @@ form h2 {
 .error-msg {
   color: red;
   font-size: 1.8vh;
+}
+
+@media (max-width: 700px) {
+  form {
+    width: 60%;
+    margin: 5% auto;
+  }
+  form input {
+    text-align: center;
+    width: 80%;
+  }
 }

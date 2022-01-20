@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import { BASE_URL } from "../helpers/helpers";
 import Loading from "../Loading/Loading";
 import ResultBoard from "../ResultBoard/ResultBoard";

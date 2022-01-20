@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react/cjs/react.development";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Ingredient.css";
 import ResultBoard from "../ResultBoard/ResultBoard";

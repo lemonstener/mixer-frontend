@@ -1,3 +1,5 @@
-import { createContext } from "react/cjs/react.development";
+import { createContext } from "react";
 
-export default createContext();
+const UserContext = createContext();
+
+export default UserContext;

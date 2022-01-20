@@ -36,3 +36,13 @@
     height: 20%;
   }
 }
+
+@media (max-width: 700px) {
+  .Result {
+    margin-bottom: 10%;
+  }
+  .Result-name {
+    background-color: black;
+    font-size: 0.9vh;
+  }
+}

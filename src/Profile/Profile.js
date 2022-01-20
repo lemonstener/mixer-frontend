@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import { BASE_URL } from "../helpers/helpers";
 import Loading from "../Loading/Loading";
 import ResultBoard from "../ResultBoard/ResultBoard";

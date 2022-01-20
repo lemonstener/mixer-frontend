@@ -9,6 +9,6 @@ const errorMessages = {
   "Empty fields": "Please fill up the form completely",
 };
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+const BASE_URL = "https://mixerdb.herokuapp.com";
 
 export { errorMessages, BASE_URL };

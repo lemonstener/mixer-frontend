@@ -56,7 +56,7 @@
 }
 
 .Cocktail-measure {
-  font-size: 0.7em;
+  font-size: 0.7vw;
   margin: 3%;
   font-weight: bold;
 }
@@ -79,17 +79,17 @@
   padding: 2%;
 }
 
-.Cocktail-instructions ol {
-  width: 90%;
-  text-align: left;
-  overflow-wrap: break-word;
-  font-size: 1.4vw;
-  padding: 10px;
-  margin: 20px;
-}
-
 @media (min-width: 1000px) {
   .Cocktail {
     width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .Cocktail-measure {
+    font-size: 0.9vh;
+  }
+  .Cocktail-instructions {
+    font-size: 1.4vh;
   }
 }
