@@ -1,6 +1,6 @@
 # Mixer
 
-![Mixer!](build/logo512.png)
+![Mixer](logo512.png)
 
 ## Overview
 
