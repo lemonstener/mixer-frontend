@@ -21,11 +21,7 @@ const AllCocktails = () => {
 
   return (
     <div>
-      <ResultBoard
-        message={`Here are all of the cocktails from our database`}
-        type="cocktails"
-        results={data}
-      />
+      <ResultBoard message={`All cocktails`} type="cocktails" results={data} />
     </div>
   );
 };

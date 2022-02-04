@@ -25,14 +25,17 @@ const Profile = () => {
 
   if (loading) return <Loading />;
   return (
-    <div
-      style={{
-        textAlign: "center",
-        color: "white",
-        textShadow: "1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000",
-      }}
-    >
-      <h1>{user}</h1>
+    <div>
+      <h1
+        style={{
+          textAlign: "center",
+          color: "white",
+          textShadow:
+            "1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000",
+        }}
+      >
+        {user}
+      </h1>
       {data.length === 0 && <p>You have not favorited any cocktails.</p>}
       {data.length > 0 && (
         <ResultBoard

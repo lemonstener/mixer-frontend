@@ -35,20 +35,30 @@
 }
 
 .Cocktail-ingredient {
-  margin-top: 4%;
   width: 25%;
-  height: 25%;
+  /* height: 25%; */
+  margin-top: 2%;
   cursor: pointer;
   box-sizing: border-box;
   transition: all 0.1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Cocktail-ingredient img {
-  margin: auto;
+  padding: 3px;
 }
 
 .Cocktail-ingredient:hover {
   transform: scale(1.2);
+}
+
+.Cocktail-ingredient:hover img {
+  box-shadow: 1px 1px 10px 1px rgba(255, 206, 66, 0.4);
+  background-color: rgba(255, 206, 66, 0.4);
+  transition: background-color 0.1.5s;
 }
 
 .Cocktail-ingredient:hover .Cocktail-measure {
@@ -56,7 +66,7 @@
 }
 
 .Cocktail-measure {
-  font-size: 0.7vw;
+  font-size: 1.4vh;
   margin: 3%;
   font-weight: bold;
 }
@@ -71,6 +81,7 @@
 
 .Cocktail-likes:hover {
   transform: scale(1.1);
+  color: pink;
 }
 
 .Cocktail-instructions {
@@ -83,13 +94,26 @@
   .Cocktail {
     width: 50%;
   }
+  .Cocktail-measure {
+    font-size: 1.4vh;
+  }
+  .Cocktail-instructions {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 600px) {
+  .Cocktail-ingredient {
+    width: 30%;
+    margin: 1%;
+  }
   .Cocktail-measure {
-    font-size: 0.9vh;
+    font-size: 1.1vh;
   }
   .Cocktail-instructions {
-    font-size: 1.4vh;
+    font-size: 0.8rem;
+  }
+  .Cocktail-likes {
+    font-size: 1.3rem;
   }
 }

@@ -13,7 +13,7 @@
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
   width: 100%;
   text-align: center;
-  font-size: 3vh;
+  font-size: 4vh;
   color: black;
   font-weight: bold;
   color: white;
@@ -28,8 +28,9 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 500px) {
   .ResultBoard {
     width: 100%;
+    margin: 0;
   }
 }
