@@ -51,9 +51,9 @@
   padding: 3px;
 }
 
-.Cocktail-ingredient:hover {
+/* .Cocktail-ingredient:hover {
   transform: scale(1.2);
-}
+} */
 
 .Cocktail-ingredient:hover img {
   box-shadow: 1px 1px 10px 1px rgba(255, 206, 66, 0.4);

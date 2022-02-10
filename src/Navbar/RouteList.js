@@ -18,12 +18,12 @@ const RouteList = ({ login, register }) => {
       <Route exact path="/cocktails" element={<AllCocktails />} />
       <Route exact path="/ingredients/details/:id" element={<Ingredient />} />
       <Route exact path="/ingredients/search" element={<IngredientSearch />} />
-      <Route exact path="/login" element={<LoginForm login={login} />} />
       <Route
         exact
         path="/register"
         element={<RegisterForm register={register} />}
       />
+      <Route exact path="/login" element={<LoginForm login={login} />} />
       <Route exact path="/logout" />
       <Route exact path="/profile" element={<Profile />} />
     </Routes>
