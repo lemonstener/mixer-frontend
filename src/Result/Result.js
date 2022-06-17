@@ -8,10 +8,10 @@ const Result = ({ id, name, type, img, likes }) => {
     navigate(`/${type}/details/${id}`);
   };
   return (
-    <div onClick={navigateTo} className="Result">
+    <li onClick={navigateTo} className="Result">
       <img className="Result-img" src={img.replace(/ /g, "%20")} />
       <p className="Result-name">{name}</p>
-    </div>
+    </li>
   );
 };
 

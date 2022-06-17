@@ -4,12 +4,16 @@
   cursor: pointer;
   margin-bottom: 5%;
   margin-left: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
 
 .Result-img {
   width: 85%;
   height: 85%;
-  border-radius: 10%;
   transition: all 0.1s;
 }
 
@@ -20,17 +24,6 @@
   box-sizing: border-box;
   transition: all 0.4s;
   padding: 2px;
-  background-color: black;
-}
-
-.Result:hover .Result-img {
-  box-shadow: 1px 1px 5px red;
-  transform: scale(1.1);
-}
-
-.Result:hover .Result-name {
-  color: rgba(255, 206, 66, 0.99);
-  background-color: black;
 }
 
 @media (min-width: 1300px) {
@@ -41,6 +34,15 @@
   }
   .Result-name {
     background-color: rgba(255, 255, 255, 0);
+  }
+  .Result:hover .Result-img {
+    transform: scale(1.1);
+    filter: brightness(.7);
+  }
+  
+  .Result:hover .Result-name {
+    color: white;
+    background-color: black;
   }
 }
 
@@ -58,5 +60,6 @@
     background-color: black;
     font-size: 1.5vh;
     width: 80%;
+    color: white;
   }
 }

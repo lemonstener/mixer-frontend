@@ -7,68 +7,139 @@ import "./Navbar.css";
 const Navbar = ({ logout }) => {
   const { user } = useContext(UserContext);
 
-  const [toggleCocktails, setToggleCocktails] = useState(false);
-
-  const dropdownCocktails = (e) => {
-    setToggleCocktails((toggleCocktails) => !toggleCocktails);
-  };
+  const [searchDropdown, setSearchDropdown] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   const prepareLogout = () => {
-    setToggleCocktails(false);
+    setSearchDropdown(false);
+    setMobileMenu(false);
     logout();
   };
 
   return (
-    <>
-      <nav className="Navbar">
+    <header>
+      <NavLink to="/">
+        <div onClick={() => setMobileMenu(false)} className="Navbar-logo" />
+      </NavLink>
+      <nav>
+        {/* Desktop menu */}
+        <ul className="Navbar-desktop">
+          <li>
+            <NavLink to="/cocktails">Cocktails</NavLink>
+          </li>
+          <li>
+            <button onClick={() => setSearchDropdown(!searchDropdown)}>
+              Search
+              {searchDropdown && <span>▼</span>}
+              {!searchDropdown && <span>▲</span>}
+            </button>
+            {searchDropdown && (
+              <ul className="Navbar-search-dropdown">
+                <li onClick={() => setSearchDropdown(!searchDropdown)}>
+                  <NavLink to="/cocktails/search">Cocktails</NavLink>
+                </li>
+                <li onClick={() => setSearchDropdown(!searchDropdown)}>
+                  <NavLink to="/ingredients/search">Ingredients</NavLink>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          {!user && (
+            <li>
+              <NavLink to="/login">Sign in</NavLink>
+            </li>
+          )}
+          {user && (
+            <li>
+              <NavLink to="/profile">{user}</NavLink>
+            </li>
+          )}
+          {user && (
+            <li>
+              <NavLink onClick={prepareLogout} to="/">
+                Logout
+              </NavLink>
+            </li>
+          )}
+        </ul>
+
+        {/* Mobile menu */}
         <div
-          className="Navbar-logo-holder"
-          onClick={() => setToggleCocktails(false)}
+          className="Navbar-hamburger"
+          onClick={() => setMobileMenu(!mobileMenu)}
         >
-          <NavLink to="/">
-            <div className="Navbar-logo" />
-          </NavLink>
-        </div>
-
-        <div className="Navbar-btn" onClick={() => setToggleCocktails(false)}>
-          <NavLink to="/cocktails">Cocktails</NavLink>
-        </div>
-
-        <div className="Navbar-dropdown-btn" onClick={dropdownCocktails}>
-          Search
-          {toggleCocktails === true && (
-            <div className="Navbar-toggle-menu">
-              <div className="Navbar-toggle">
-                <NavLink to="/cocktails/search">cocktails</NavLink>
-              </div>
-              <div className="Navbar-toggle">
-                <NavLink to="/ingredients/search">ingredients</NavLink>
-              </div>
-            </div>
+          {mobileMenu && (
+            <>
+              <div className="bar1"></div>
+              <div className="bar2"></div>
+              <div className="bar3"></div>
+            </>
+          )}
+          {!mobileMenu && (
+            <>
+              <div></div>
+              <div></div>
+              <div></div>
+            </>
           )}
         </div>
+        {mobileMenu && (
+          <ul className="Navbar-mobile">
+            <li>
+              <NavLink
+                onClick={() => setMobileMenu(!mobileMenu)}
+                to="/cocktails"
+              >
+                Cocktails
+              </NavLink>
+            </li>
+            <li>
+              <button onClick={() => setSearchDropdown(!searchDropdown)}>
+                Search
+                {searchDropdown && <span>▼</span>}
+                {!searchDropdown && <span>▲</span>}
+              </button>
+              {searchDropdown && (
+                <ul className="Navbar-search-dropdown-mobile">
+                  <li onClick={() => setMobileMenu(!mobileMenu)}>
+                    <NavLink to="/cocktails/search">Cocktails</NavLink>
+                  </li>
+                  <li onClick={() => setMobileMenu(!mobileMenu)}>
+                    <NavLink to="/ingredients/search">Ingredients</NavLink>
+                  </li>
+                </ul>
+              )}
+            </li>
 
-        {!user && (
-          <div className="Navbar-btn" onClick={() => setToggleCocktails(false)}>
-            <NavLink to="/login">Sign in</NavLink>
-          </div>
-        )}
-
-        {user && (
-          <>
-            <div
-              className="Navbar-btn"
-              onClick={() => setToggleCocktails(false)}
-            >
-              <NavLink to="/profile">{user}</NavLink>
-            </div>
-            <div className="Navbar-btn" onClick={prepareLogout}>
-              <NavLink to="/">Logout</NavLink>
-            </div>
-          </>
+            {!user && (
+              <li>
+                <NavLink onClick={() => setMobileMenu(!mobileMenu)} to="/login">
+                  Sign in
+                </NavLink>
+              </li>
+            )}
+            {user && (
+              <li>
+                <NavLink
+                  onClick={() => setMobileMenu(!mobileMenu)}
+                  to="/profile"
+                >
+                  {user}
+                </NavLink>
+              </li>
+            )}
+            {user && (
+              <li>
+                <NavLink onClick={prepareLogout} to="/">
+                  Logout
+                </NavLink>
+              </li>
+            )}
+          </ul>
         )}
       </nav>
-    </>
+    </header>
   );
 };
 

@@ -2,6 +2,17 @@
 
 ![Mixer](logo192.png)
 
+## NOTE
+
+After realizing how ugly this application looks, I have decided to give it a complete visual makeover + some structural changes. Because of this, you may see some differences between the published code and what is currently in the repository. Some changes are minor, other not so much. Here is a list of the most significant changes so far:
+
+- 06/17/2022 - Navigation bar
+
+I will redeploy the final version to Netlify once I am satisifed with the changes. Documentation will be updated accordingly. 
+
+I apologize for the inconvenience.
+Thank you for visiting!
+
 ## Overview
 
 Welcome to the Mixer Front End repository!

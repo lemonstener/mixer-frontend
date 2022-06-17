@@ -6,22 +6,19 @@
   width: 90%;
   margin-top: 5%;
   margin-left: 5%;
-  color: white;
 }
 
 .ResultBoard-header {
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
   width: 100%;
   text-align: center;
   font-size: 4vh;
   color: black;
   font-weight: bold;
-  color: white;
 }
 
 .ResultBoard-holder {
+  list-style: none;
   width: 90%;
-  margin-left: 5%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

@@ -5,8 +5,8 @@ import "./ResultBoard.css";
 const ResultBoard = ({ message, type, results }) => {
   return (
     <div className="ResultBoard">
-      <p className="ResultBoard-header">{message}</p>
-      <div className="ResultBoard-holder">
+      <h1 className="ResultBoard-header">{message}</h1>
+      <ul className="ResultBoard-holder">
         {results.map((r) => {
           return (
             <Result
@@ -19,7 +19,7 @@ const ResultBoard = ({ message, type, results }) => {
             />
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };
