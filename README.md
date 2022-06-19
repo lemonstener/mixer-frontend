@@ -4,9 +4,10 @@
 
 ## NOTE
 
-After realizing how ugly this application looks, I have decided to give it a complete visual makeover + some structural changes. Because of this, you may see some differences between the published code and what is currently in the repository. Some changes are minor, other not so much. Here is a list of the most significant changes so far:
+Since I was never satisfied with the overall look of this application, I have decided to finally give it a complete visual makeover + some structural changes. Because of this, you may see some differences between the live published version and what is currently in this repository. Some changes are minor, other not so much. Here is a list of the most significant changes so far:
 
-- 06/17/2022 - Navigation bar
+- 06/17/2022 - Navigation bar, html structure of returned results
+- 06/18/2022 - Footer, new media queries, overall change of how results are displayed
 
 I will redeploy the final version to Netlify once I am satisifed with the changes. Documentation will be updated accordingly. 
 

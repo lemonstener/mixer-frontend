@@ -6,7 +6,7 @@ const ResultBoard = ({ message, type, results }) => {
   return (
     <div className="ResultBoard">
       <h1 className="ResultBoard-header">{message}</h1>
-      <ul className="ResultBoard-holder">
+      <ul className="ResultBoard-list">
         {results.map((r) => {
           return (
             <Result

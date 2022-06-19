@@ -7,6 +7,7 @@ import { decodeToken } from "react-jwt";
 import UserContext from "./UserContext";
 import Loading from "./Loading/Loading";
 import { BASE_URL } from "./helpers/helpers";
+import Footer from "./Footer/Footer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -92,6 +93,7 @@ function App() {
         <Navbar logout={logout} />
         <RouteList login={login} register={register} />
       </UserContext.Provider>
+      <Footer />
     </BrowserRouter>
   );
 }

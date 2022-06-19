@@ -3,31 +3,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  margin-top: 5%;
-  margin-left: 5%;
+  width: 70%;
+  max-width: 1300px;
+  margin: auto;
+  padding-top: 60px;
 }
 
 .ResultBoard-header {
-  width: 100%;
   text-align: center;
-  font-size: 4vh;
-  color: black;
-  font-weight: bold;
 }
 
-.ResultBoard-holder {
-  list-style: none;
-  width: 90%;
+.ResultBoard-list {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+@media only screen and (max-width: 991px) {
+  .ResultBoard-header {
+    font-size: 1.1rem;
+  }
+
 }
 
 @media (max-width: 500px) {
   .ResultBoard {
-    width: 100%;
-    margin: 0;
+    width: 90%;
   }
 }
