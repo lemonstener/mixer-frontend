@@ -8,6 +8,8 @@ const AllCocktails = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  window.scrollTo(0, 0);
+
   useEffect(() => {
     const getData = async () => {
       const res = await axios.get(`${BASE_URL}/cocktails`);

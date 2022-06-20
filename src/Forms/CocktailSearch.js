@@ -10,6 +10,8 @@ const CocktailSearch = () => {
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  window.scrollTo(0, 0);
+
   const searchTerm = async (string) => {
     setLoading(true);
     try {
@@ -31,13 +33,12 @@ const CocktailSearch = () => {
     e.preventDefault();
     if (term.trim() === "") return;
     await searchTerm(term);
-    setTerm("");
   };
 
   return (
-    <div>
+    <div className="Form-holder">
       <form onSubmit={handleSubmit}>
-        <p style={{ fontSize: "2vh" }}>Type the cocktail name here</p>
+        <label>Type the cocktail name here</label>
         <input
           type="text"
           placeholder="ex. 'Long Island'"

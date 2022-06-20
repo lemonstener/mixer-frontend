@@ -5,6 +5,7 @@ const Result = ({ id, name, type, img, likes }) => {
   const navigate = useNavigate();
 
   const navigateTo = () => {
+    window.scrollTo(0, 0);
     navigate(`/${type}/details/${id}`);
   };
   return (

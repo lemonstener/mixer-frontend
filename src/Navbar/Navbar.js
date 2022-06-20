@@ -14,6 +14,7 @@ const Navbar = ({ logout }) => {
     setSearchDropdown(false);
     setMobileMenu(false);
     logout();
+    window.scrollTo(0, 0);
   };
 
   return (

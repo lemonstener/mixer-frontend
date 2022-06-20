@@ -1,12 +1,11 @@
 .ResultBoard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 70%;
   max-width: 1300px;
-  margin: auto;
-  padding-top: 60px;
+  margin: 100px auto;
 }
 
 .ResultBoard-header {

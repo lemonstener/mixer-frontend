@@ -17,7 +17,10 @@ const Cocktail = () => {
   const [liked, setLiked] = useState(false);
   const [instructions, setInstructions] = useState([]);
 
+  window.scrollTo(0, 0);
+
   const navigateTo = async (int) => {
+    window.scrollTo(0, 0);
     navigate(`/ingredients/details/${int}`);
   };
 
@@ -35,7 +38,10 @@ const Cocktail = () => {
   };
 
   const updateCocktail = () => {
-    if (!user) return;
+    if (!user) {
+      document.querySelector(".Cocktail-login-message").style.opacity = "1";
+      return;
+    }
     setLiked((liked) => !liked);
     const dataCopy = data;
     liked === true ? dataCopy.likes-- : dataCopy.likes++;
@@ -67,42 +73,63 @@ const Cocktail = () => {
 
       <img className="Cocktail-img" src={data.img} />
       <h2>Ingredients:</h2>
-      <div className="Cocktail-ingredients">
+      <ul className="Cocktail-ingredients">
         {data.ingredients.map((i) => {
           return (
-            <div
-              onClick={() => navigateTo(i.id)}
-              key={uuidv4()}
-              className="Cocktail-ingredient"
-            >
-              <img className="Cocktail-ingredient-img" src={i.img_sm} />
-              <div className="Cocktail-measure">
-                {i.measure !== "null" && `${i.measure} ${i.name}`}
-                {i.measure === "null" && `${i.name}`}
-              </div>
-            </div>
+            <li onClick={() => navigateTo(i.id)} key={uuidv4()}>
+              {i.measure !== "null" && (
+                <>
+                  <span className="Cocktail-measure">{i.measure}</span>
+                  <span
+                    className="Cocktail-ingredient"
+                    aria-label="View other cocktails with this ingredient"
+                  >
+                    {i.name}
+                  </span>
+                </>
+              )}
+              {i.measure === "null" && (
+                <span
+                  className="Cocktail-ingredient"
+                  aria-label="View other cocktails with this ingredient"
+                >
+                  {i.name}
+                </span>
+              )}
+            </li>
           );
         })}
-      </div>
+      </ul>
 
       <div onClick={updateCocktail} className="Cocktail-likes">
         {liked === true ? (
-          <i className="fas fa-heart"></i>
+          <i
+            aria-label="Add cocktail to favorites"
+            className="fas fa-heart"
+          ></i>
         ) : (
-          <i className="far fa-heart"></i>
+          <i
+            aria-label="Remove cocktail from favorites"
+            className="far fa-heart"
+          ></i>
         )}
         : {data.likes}
       </div>
-      <h2>How to make:</h2>
-      <div className="Cocktail-instructions">
+      <span className="Cocktail-login-message">
+        Please login to add this cocktail to favorites
+      </span>
+      <h2>Directions:</h2>
+      <ol className="Cocktail-instructions">
         {instructions.length > 1 &&
           instructions.map((i) => {
             return (
-              <p key={uuidv4()}>{i[i.length - 1] === "." ? i : i + "."}</p>
+              <li key={uuidv4()}>{i[i.length - 1] === "." ? i : i + "."}</li>
             );
           })}
-        {instructions.length === 1 && <p>{data.instructions}</p>}
-      </div>
+        {instructions.length === 1 && (
+          <li className="Cocktail-paragraph">{data.instructions}</li>
+        )}
+      </ol>
     </div>
   );
 };

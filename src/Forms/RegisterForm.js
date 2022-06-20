@@ -14,6 +14,8 @@ const RegisterForm = ({ register }) => {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
+  window.scrollTo(0, 0);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((data) => ({
@@ -46,44 +48,46 @@ const RegisterForm = ({ register }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Registration form</h2>
-      <label htmlFor="username">Username</label>
-      <input
-        id="username"
-        name="username"
-        type="username"
-        placeholder="username"
-        value={formData.username}
-        onChange={handleChange}
-      />
-      <label htmlFor="email">Email</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        placeholder="email"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        placeholder="password"
-        value={formData.password}
-        onChange={handleChange}
-      />
-      <button>Submit</button>
-      {errors &&
-        errors.map((e) => (
-          <span className="error-msg" key={uuidv4()}>
-            {errorMessages[e]}
-          </span>
-        ))}
-      <a href="/login">Already have an account? Login here</a>
-    </form>
+    <div className="Form-holder">
+      <form onSubmit={handleSubmit}>
+        <h2>Registration form</h2>
+        <label htmlFor="username">Username</label>
+        <input
+          id="username"
+          name="username"
+          type="username"
+          placeholder="username"
+          value={formData.username}
+          onChange={handleChange}
+        />
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <button>Submit</button>
+        {errors &&
+          errors.map((e) => (
+            <span className="error-msg" key={uuidv4()}>
+              {errorMessages[e]}
+            </span>
+          ))}
+        <a href="/login">Already have an account? Login here</a>
+      </form>
+    </div>
   );
 };
 

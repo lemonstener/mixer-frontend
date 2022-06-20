@@ -12,64 +12,49 @@ code {
     monospace;
 }
 
+#root {
+  min-height: 100vh;
+}
+
+.Form-holder {
+  margin: 60px auto 100px auto;
+}
+
 form {
+  margin: auto;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.9);
   background-color: rgba(0, 0, 0, 0.8);
+  width: 80%;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40%;
-  padding: 2vh;
-  margin-left: 30vw;
-  margin-top: 4vh;
+  padding: 20px;
   border-radius: 3vh;
-}
-
-form label {
-  font-size: 1.5vw;
 }
 
 form input {
   margin: 2vh;
-  width: 25vw;
-  height: 3vh;
-  font-size: 2vh;
-  border-radius: 5px;
+  width: 80%;
 }
 
 form button {
   padding: 5px 15px;
-  font-size: 2vh;
   cursor: pointer;
   border-radius: 5px;
-  background-color: rgba(255, 206, 66, 0.99);
+  background-color: #29BF12;
   font-weight: bold;
 }
 
 form a {
-  margin: 20px;
   color: white;
-  font-size: 1.2vw;
-}
-
-form h2 {
-  font-size: 1.5vw;
+  padding: 10px;
 }
 
 .error-msg {
   color: red;
-  font-size: 1.8vh;
+  padding: 10px;
 }
 
-@media (max-width: 700px) {
-  form {
-    width: 60%;
-    margin: 5% auto;
-  }
-  form input {
-    text-align: center;
-    width: 80%;
-  }
-}

@@ -13,6 +13,8 @@ const LoginForm = ({ login }) => {
   const [errors, setErrors] = useState(null);
   const navigate = useNavigate();
 
+  window.scrollTo(0, 0);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((data) => ({
@@ -37,7 +39,7 @@ const LoginForm = ({ login }) => {
   };
 
   return (
-    <>
+    <div className="Form-holder">
       <form onSubmit={handleSubmit}>
         <h2>Login form</h2>
         <label htmlFor="username">Username</label>
@@ -69,7 +71,7 @@ const LoginForm = ({ login }) => {
           })}
         <a href="/register">Don't have an account? Click here</a>
       </form>
-    </>
+    </div>
   );
 };
 

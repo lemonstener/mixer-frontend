@@ -1,145 +1,91 @@
 .Cocktail {
-  width: 60%;
-  max-width: 638px;
-  margin: 40px auto;
-  text-align: center;
-  background-color: white;
-  box-shadow: 0px 1px 1px black;
+  width: 100%;
+  margin: 60px auto 100px auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .Cocktail h1 {
-  font-size: 1.6rem;
+  text-align: center;
 }
 
 .Cocktail h2 {
-  font-size: 1.4rem;
+  margin-bottom: 5px;
 }
 
-.Cocktail-img {
-  width: 70%;
+.Cocktail img {
+  margin: auto;
+  width: 90%;
+  max-width: 568px;
+  box-shadow: 0px 5px 5px gray;
+  border-radius: 5px;
+}
+
+.Cocktail ul {
+  list-style: none;
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+}
+
+.Cocktail ul li {
+  padding: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Cocktail ol {
+  padding-inline-start: 0;
+}
+
+.Cocktail-measure {
+  font-size: .8em;
+}
+
+.Cocktail-ingredient {
+  color: rgb(24, 108, 11);
+  transition: all .3s;
+  margin-left: 5px;
+}
+
+.Cocktail-paragraph {
+  list-style: none;
+}
+
+@media only screen and (min-width: 991px) {
+  .Cocktail-ingredient:hover {
+  color: #FF9914;
+  }
 }
 
 @media only screen and (max-width: 991px) {
   .Cocktail {
-    width: 100%;
-    margin: 0;
-  }
-} 
-
-/* @media only screen and (min-width: 991.1px) {
-  .Cocktail {
-    box-shadow: 0px 1px 1px black;
-  }
-} */
-
-/* @media only screen and (max-width: 991px) {
-  .Cocktail {
-    margin: 0;
-    height: auto;
-    background-color: white;
-    width: 100%;
+    width: 80%;
   }
 }
 
-.Cocktail-img {
-  border: .1px solid gray;
-  width: 60%;
-}
-
-.Cocktail-ingredient-img {
-  width: 50px;
-}
-
-.Cocktail-ingredients {
-  width: 60%;
-  margin: 2% auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  word-wrap: break-word;
-}
-
-.Cocktail-ingredient {
-  width: 25%;
-  height: 25%;
-  margin: 10px;
+.Cocktail-likes i {
+  color: #F21B3F;
+  font-size: 1.4em;
+  transition: all .3s;
   cursor: pointer;
-  box-sizing: border-box;
-  transition: all 0.1s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-top: 10px;
 }
 
-.Cocktail-ingredient img {
-  padding: 3px;
+.Cocktail-login-message {
+  text-align: center;
+  opacity: 0;
+  transition: all .3s;
+  color: #F21B3F;
 }
 
-@media only screen and (min-width: 1300px) {
-  .Cocktail-ingredient:hover img {
-    filter: brightness(.5);
-    transition: all 0.1.5s;
-  }
-  .Cocktail-ingredient:hover .Cocktail-measure {
-    color: rgba(220, 33, 92, 0.99);
-  } 
-}
-
-.Cocktail-measure {
-  font-weight: bold;
-}
-
-.Cocktail-likes {
-  margin-top: 1vh;
-  color: #f47174;
-  cursor: pointer;
-  font-size: 2.5vw;
-  transition: all 0.3s;
-}
-
-.Cocktail-likes:hover {
-  transform: scale(1.1);
-  color: pink;
-}
-
-.Cocktail-instructions {
-  margin-top: 2%;
-  font-size: 1.2rem;
-  padding: 2%;
-}
-
-@media only screen and (min-width: 1000px) {
-  .Cocktail {
-    width: 50%;
-  }
-  .Cocktail-measure {
-    font-size: 1.4vh;
-  }
-  .Cocktail-instructions {
-    font-size: 1.1rem;
+@media only screen and (min-width: 991px) {
+  .Cocktail-likes i:hover {
+    transform: scale(1.2);
   }
 }
-
-
-@media only screen and (max-width: 600px) {
-  .Cocktail-ingredient {
-    width: 30%;
-    margin: 1%;
-  }
-  .Cocktail-measure {
-    font-size: 1.1vh;
-  }
-  .Cocktail-instructions {
-    font-size: 0.8rem;
-  }
-  .Cocktail-likes {
-    font-size: 1.3rem;
-  }
-} */

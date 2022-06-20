@@ -41,11 +41,11 @@ header a, button{
 }
 
 header a:hover {
-  color: rgb(35, 163, 133);
+  color: #FF9914;
 }
 
 header button:hover {
-  color: rgb(35, 163, 133);
+  color: #FF9914;
 }
 
 header button {

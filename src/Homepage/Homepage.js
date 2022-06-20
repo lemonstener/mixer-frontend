@@ -8,6 +8,8 @@ const Homepage = () => {
   const [cocktails, setCocktails] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  window.scrollTo(0, 0);
+
   useEffect(() => {
     const getCocktails = async () => {
       const res = await axios.get(`${BASE_URL}/cocktails/random`);
@@ -20,13 +22,11 @@ const Homepage = () => {
 
   if (loading) return <Loading />;
   return (
-    <div>
-      <ResultBoard
-        message="Let's get started with some random cocktails"
-        type="cocktails"
-        results={cocktails}
-      />
-    </div>
+    <ResultBoard
+      message="Let's get started with some random cocktails"
+      type="cocktails"
+      results={cocktails}
+    />
   );
 };
 

@@ -6,12 +6,15 @@ import { BASE_URL } from "../helpers/helpers";
 import Loading from "../Loading/Loading";
 import ResultBoard from "../ResultBoard/ResultBoard";
 import UserContext from "../UserContext";
+import "./Profile.css";
 
 const Profile = () => {
   const { user } = useContext(UserContext);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
+  window.scrollTo(0, 0);
 
   useEffect(() => {
     const getUserData = async () => {
@@ -25,18 +28,11 @@ const Profile = () => {
 
   if (loading) return <Loading />;
   return (
-    <div>
-      <h1
-        style={{
-          textAlign: "center",
-          color: "white",
-          textShadow:
-            "1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000",
-        }}
-      >
-        {user}
+    <div className="Profile">
+      <h1>
+        Welcome back, <span>{user}</span>!
       </h1>
-      {data.length === 0 && <p>You have not favorited any cocktails.</p>}
+      {data.length === 0 && <h2>You have not favorited any cocktails.</h2>}
       {data.length > 0 && (
         <ResultBoard
           message={`Your favorite cocktails`}
