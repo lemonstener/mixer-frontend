@@ -5,7 +5,8 @@
   align-items: center;
   width: 70%;
   max-width: 1300px;
-  margin: 100px auto;
+  padding: 100px 0px;
+  margin: auto;
 }
 
 .ResultBoard-header {

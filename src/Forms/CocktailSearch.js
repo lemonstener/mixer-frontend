@@ -10,8 +10,6 @@ const CocktailSearch = () => {
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  window.scrollTo(0, 0);
-
   const searchTerm = async (string) => {
     setLoading(true);
     try {

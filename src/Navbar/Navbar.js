@@ -13,6 +13,7 @@ const Navbar = ({ logout }) => {
   const prepareLogout = () => {
     setSearchDropdown(false);
     setMobileMenu(false);
+    setSearchDropdown(false);
     logout();
     window.scrollTo(0, 0);
   };
@@ -20,13 +21,41 @@ const Navbar = ({ logout }) => {
   return (
     <header>
       <NavLink to="/">
-        <div onClick={() => setMobileMenu(false)} className="Navbar-logo" />
+        <div
+          onClick={() => {
+            setSearchDropdown(false);
+            setMobileMenu(false);
+            window.scrollTo(0, 0);
+          }}
+          className="Navbar-logo"
+        />
       </NavLink>
       <nav>
         {/* Desktop menu */}
         <ul className="Navbar-desktop">
-          <li>
-            <NavLink to="/cocktails">Cocktails</NavLink>
+          <li
+            onClick={() => {
+              setSearchDropdown(false);
+              window.scrollTo(0, 0);
+            }}
+          >
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li
+            onClick={() => {
+              setSearchDropdown(false);
+              window.scrollTo(0, 0);
+            }}
+          >
+            <NavLink to="/random">Random</NavLink>
+          </li>
+          <li
+            onClick={() => {
+              setSearchDropdown(false);
+              window.scrollTo(0, 0);
+            }}
+          >
+            <NavLink to="/cocktails">All cocktails</NavLink>
           </li>
           <li>
             <button onClick={() => setSearchDropdown(!searchDropdown)}>
@@ -36,10 +65,20 @@ const Navbar = ({ logout }) => {
             </button>
             {searchDropdown && (
               <ul className="Navbar-search-dropdown">
-                <li onClick={() => setSearchDropdown(!searchDropdown)}>
+                <li
+                  onClick={() => {
+                    setSearchDropdown(false);
+                    window.scrollTo(0, 0);
+                  }}
+                >
                   <NavLink to="/cocktails/search">Cocktails</NavLink>
                 </li>
-                <li onClick={() => setSearchDropdown(!searchDropdown)}>
+                <li
+                  onClick={() => {
+                    setSearchDropdown(false);
+                    window.scrollTo(0, 0);
+                  }}
+                >
                   <NavLink to="/ingredients/search">Ingredients</NavLink>
                 </li>
               </ul>
@@ -47,17 +86,32 @@ const Navbar = ({ logout }) => {
           </li>
 
           {!user && (
-            <li>
+            <li
+              onClick={() => {
+                setSearchDropdown(false);
+                window.scrollTo(0, 0);
+              }}
+            >
               <NavLink to="/login">Sign in</NavLink>
             </li>
           )}
           {user && (
-            <li>
+            <li
+              onClick={() => {
+                setSearchDropdown(false);
+                window.scrollTo(0, 0);
+              }}
+            >
               <NavLink to="/profile">{user}</NavLink>
             </li>
           )}
           {user && (
-            <li>
+            <li
+              onClick={() => {
+                setSearchDropdown(false);
+                window.scrollTo(0, 0);
+              }}
+            >
               <NavLink onClick={prepareLogout} to="/">
                 Logout
               </NavLink>
@@ -68,7 +122,10 @@ const Navbar = ({ logout }) => {
         {/* Mobile menu */}
         <div
           className="Navbar-hamburger"
-          onClick={() => setMobileMenu(!mobileMenu)}
+          onClick={() => {
+            setMobileMenu(!mobileMenu);
+            setSearchDropdown(false);
+          }}
         >
           {mobileMenu && (
             <>
@@ -87,12 +144,34 @@ const Navbar = ({ logout }) => {
         </div>
         {mobileMenu && (
           <ul className="Navbar-mobile">
+            <li
+              onClick={() => {
+                setMobileMenu(!mobileMenu);
+                setSearchDropdown(false);
+                window.scrollTo(0, 0);
+              }}
+            >
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li
+              onClick={() => {
+                setMobileMenu(!mobileMenu);
+                setSearchDropdown(false);
+                window.scrollTo(0, 0);
+              }}
+            >
+              <NavLink to="/random">Random</NavLink>
+            </li>
             <li>
               <NavLink
-                onClick={() => setMobileMenu(!mobileMenu)}
+                onClick={() => {
+                  setSearchDropdown(false);
+                  setMobileMenu(!mobileMenu);
+                  window.scrollTo(0, 0);
+                }}
                 to="/cocktails"
               >
-                Cocktails
+                All Cocktails
               </NavLink>
             </li>
             <li>
@@ -103,10 +182,22 @@ const Navbar = ({ logout }) => {
               </button>
               {searchDropdown && (
                 <ul className="Navbar-search-dropdown-mobile">
-                  <li onClick={() => setMobileMenu(!mobileMenu)}>
+                  <li
+                    onClick={() => {
+                      setSearchDropdown(false);
+                      setMobileMenu(!mobileMenu);
+                      window.scrollTo(0, 0);
+                    }}
+                  >
                     <NavLink to="/cocktails/search">Cocktails</NavLink>
                   </li>
-                  <li onClick={() => setMobileMenu(!mobileMenu)}>
+                  <li
+                    onClick={() => {
+                      setSearchDropdown(false);
+                      setMobileMenu(!mobileMenu);
+                      window.scrollTo(0, 0);
+                    }}
+                  >
                     <NavLink to="/ingredients/search">Ingredients</NavLink>
                   </li>
                 </ul>
@@ -115,7 +206,14 @@ const Navbar = ({ logout }) => {
 
             {!user && (
               <li>
-                <NavLink onClick={() => setMobileMenu(!mobileMenu)} to="/login">
+                <NavLink
+                  onClick={() => {
+                    setSearchDropdown(false);
+                    setMobileMenu(!mobileMenu);
+                    window.scrollTo(0, 0);
+                  }}
+                  to="/login"
+                >
                   Sign in
                 </NavLink>
               </li>
@@ -123,7 +221,11 @@ const Navbar = ({ logout }) => {
             {user && (
               <li>
                 <NavLink
-                  onClick={() => setMobileMenu(!mobileMenu)}
+                  onClick={() => {
+                    setSearchDropdown(false);
+                    setMobileMenu(!mobileMenu);
+                    window.scrollTo(0, 0);
+                  }}
                   to="/profile"
                 >
                   {user}

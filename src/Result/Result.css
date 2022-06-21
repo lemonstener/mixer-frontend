@@ -28,7 +28,7 @@
     filter: brightness(.7);
   }
   .Result:hover .Result-name {
-    background-color: black;
+    background-color: #2c302c;
     color: white;
   }
 }

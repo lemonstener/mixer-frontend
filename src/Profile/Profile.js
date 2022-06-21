@@ -14,8 +14,6 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  window.scrollTo(0, 0);
-
   useEffect(() => {
     const getUserData = async () => {
       if (!user) navigate("/");

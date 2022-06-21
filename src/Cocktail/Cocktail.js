@@ -17,8 +17,6 @@ const Cocktail = () => {
   const [liked, setLiked] = useState(false);
   const [instructions, setInstructions] = useState([]);
 
-  window.scrollTo(0, 0);
-
   const navigateTo = async (int) => {
     window.scrollTo(0, 0);
     navigate(`/ingredients/details/${int}`);

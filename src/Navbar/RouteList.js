@@ -8,11 +8,13 @@ import CocktailSearch from "../Forms/CocktailSearch";
 import IngredientSearch from "../Forms/IngredientSearch";
 import AllCocktails from "../AllCocktails/AllCocktails";
 import Profile from "../Profile/Profile";
+import Random from "../Random/Random";
 
 const RouteList = ({ login, register }) => {
   return (
     <Routes>
       <Route exact path="/" element={<Homepage />} />
+      <Route exact path="/random" element={<Random />} />
       <Route exact path="/cocktails/details/:id" element={<Cocktail />} />
       <Route exact path="/cocktails/search" element={<CocktailSearch />} />
       <Route exact path="/cocktails" element={<AllCocktails />} />

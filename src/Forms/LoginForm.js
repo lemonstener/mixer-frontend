@@ -13,8 +13,6 @@ const LoginForm = ({ login }) => {
   const [errors, setErrors] = useState(null);
   const navigate = useNavigate();
 
-  window.scrollTo(0, 0);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((data) => ({

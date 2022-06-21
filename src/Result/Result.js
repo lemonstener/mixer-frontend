@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import "./Result.css";
 
@@ -10,7 +11,12 @@ const Result = ({ id, name, type, img, likes }) => {
   };
   return (
     <li onClick={navigateTo} className="Result">
-      <img className="Result-img" src={img.replace(/ /g, "%20")} />
+      <LazyLoadImage
+        aria-label={`View ${name} recipe`}
+        alt={`Picture of cocktail ${name}`}
+        className="Result-img"
+        src={img.replace(/ /g, "%20")}
+      />
       <p className="Result-name">{name}</p>
     </li>
   );
