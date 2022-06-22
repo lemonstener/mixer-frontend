@@ -61,7 +61,7 @@ const Cocktail = () => {
       }
     };
     getData();
-  }, []);
+  }, [favorites, id, navigate]);
 
   if (loading) return <Loading />;
 
@@ -69,7 +69,7 @@ const Cocktail = () => {
     <div className="Cocktail">
       <h1>{data.name}</h1>
 
-      <img className="Cocktail-img" src={data.img} />
+      <img alt={`${data.name}`} className="Cocktail-img" src={data.img} />
       <h2>Ingredients:</h2>
       <ul className="Cocktail-ingredients">
         {data.ingredients.map((i) => {

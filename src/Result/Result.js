@@ -16,6 +16,7 @@ const Result = ({ id, name, type, img, likes }) => {
         alt={`Picture of cocktail ${name}`}
         className="Result-img"
         src={img.replace(/ /g, "%20")}
+        effect="blur"
       />
       <p className="Result-name">{name}</p>
     </li>
