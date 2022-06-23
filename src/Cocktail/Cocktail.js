@@ -7,6 +7,8 @@ import { BASE_URL } from "../helpers/helpers";
 import Loading from "../Loading/Loading";
 import UserContext from "../UserContext";
 import "./Cocktail.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Cocktail = () => {
   const { user, favorites, favCocktail } = useContext(UserContext);
@@ -69,7 +71,12 @@ const Cocktail = () => {
     <div className="Cocktail">
       <h1>{data.name}</h1>
 
-      <img alt={`${data.name}`} className="Cocktail-img" src={data.img} />
+      <LazyLoadImage
+        alt={`${data.name}`}
+        className="Cocktail-img"
+        src={data.img}
+        effect="blur"
+      />
       <h2>Ingredients:</h2>
       <ul className="Cocktail-ingredients">
         {data.ingredients.map((i) => {

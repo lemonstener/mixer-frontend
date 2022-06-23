@@ -5,6 +5,8 @@ import "./Ingredient.css";
 import ResultBoard from "../ResultBoard/ResultBoard";
 import Loading from "../Loading/Loading";
 import { BASE_URL } from "../helpers/helpers";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Ingredient = () => {
   const { id } = useParams();
@@ -17,7 +19,6 @@ const Ingredient = () => {
       try {
         const res = await axios.get(`${BASE_URL}/ingredients/cocktails/${id}`);
         setData(res.data);
-        console.log(res.data.img_lg);
         setLoading(false);
       } catch (error) {
         navigate("/");
@@ -31,7 +32,11 @@ const Ingredient = () => {
   return (
     <>
       <div className="Ingredient">
-        <img src={data.img_md.replaceAll(" ", "%20")} alt={data.name} />
+        <LazyLoadImage
+          effect="blur"
+          src={data.img_md.replaceAll(" ", "%20")}
+          alt={data.name}
+        />
       </div>
       {data.cocktails.length > 0 && (
         <ResultBoard

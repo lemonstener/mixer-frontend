@@ -1,4 +1,5 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { useNavigate } from "react-router-dom";
 import "./Result.css";
 
@@ -16,6 +17,7 @@ const Result = ({ id, name, type, img, likes }) => {
         alt={`Picture of cocktail ${name}`}
         className="Result-img"
         src={img.replace(/ /g, "%20")}
+        placeholderSrc={img.replace(/ /g, "%20")}
         effect="blur"
       />
       <p className="Result-name">{name}</p>

@@ -1,5 +1,5 @@
 .Ingredient {
-  margin-top: 100px;
+  margin-top: 80px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -8,6 +8,7 @@
 }
 
 .Ingredient img {
-  width: 50%;
+  width: 80%;
+  margin-left: 10%;
   max-width: 368px;
 }
